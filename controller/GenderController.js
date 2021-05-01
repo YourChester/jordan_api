@@ -1,6 +1,16 @@
 const GenderModel = require('../model/GenderModel')
 
 class GenderController {
+  async adminIndex(req, res) {
+    try {
+      const genders = await GenderModel.find()
+      return res.status(200).json({ genders })
+    } catch (e) {
+      console.log(e);
+      res.status(500).json({ message: e.message })
+    }
+  }
+
   async index(req, res) {
     try {
       const genders = await GenderModel.find()
@@ -11,7 +21,7 @@ class GenderController {
     }
   }
 
-  async create(req, res) {
+  async adminCreate(req, res) {
     try {
       const { name } = req.body
       const newGender = new GenderModel({ name })
@@ -20,6 +30,21 @@ class GenderController {
         return res.status(200).json(newGender)
       } else {
         return res.status(500).json({ message: 'Не удалось создать пол'})
+      }
+    } catch (e) {
+      console.log(e);
+      res.status(500).json({ message: e.message })
+    }
+  }
+
+  async adminShow(req, res) {
+    try {
+      const id = req.params.id
+      const gender = GenderModel.findById(id)
+      if (gender !== null) {
+        return res.status(200).json(gender)
+      } else {
+        return res.status(500).json({ message: 'Пол не найден'})
       }
     } catch (e) {
       console.log(e);
@@ -42,7 +67,7 @@ class GenderController {
     }
   }
 
-  async update(req, res) {
+  async adminUpdate(req, res) {
     try {
       const id = req.params.id
       const { name } = req.body
@@ -59,7 +84,7 @@ class GenderController {
     }
   }
 
-  async delete(req, res) {
+  async adminDelete(req, res) {
     try {
       const id = req.params.id
       const deletedGender = await GenderModel.remove({ _id: id })

@@ -1,6 +1,16 @@
 const BrandModel = require('../model/BrandModel')
 
 class BrandController {
+  async adminIndex(req, res) {
+    try {
+      const brands = await BrandModel.find()
+      return res.status(200).json({ brands })
+    } catch (e) {
+      console.log(e);
+      res.status(500).json({ message: e.message })
+    }
+  }
+
   async index(req, res) {
     try {
       const brands = await BrandModel.find()
@@ -11,7 +21,7 @@ class BrandController {
     }
   }
 
-  async create(req, res) {
+  async adminCreate(req, res) {
     try {
       const { name, visibility } = req.body
       const newBrand = new BrandModel({name, visibility})
@@ -27,7 +37,7 @@ class BrandController {
     }
   }
 
-  async show(req, res) {
+  async adminShow(req, res) {
     try {
       const id = req.params.id
       const brand = await BrandModel.findById(id)
@@ -42,7 +52,7 @@ class BrandController {
     }
   }
 
-  async update(req, res) {
+  async adminUpdate(req, res) {
     try {
       const id = req.params.id
       const { name, visibility } = req.body
@@ -59,7 +69,7 @@ class BrandController {
     }
   }
 
-  async delete(req, res) {
+  async adminDelete(req, res) {
     try {
       const id = req.params.id
       const deletedBrand = await BrandModel.remove({ _id: id })

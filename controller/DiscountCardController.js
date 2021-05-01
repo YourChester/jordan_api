@@ -1,7 +1,7 @@
 const DiscountCardModel = require('../model/DiscountCardModel')
 
 class DiscountCardController {
-  async index(req, res) {
+  async adminIndex(req, res) {
     try {
       const discountCards = await DiscountCardModel.find()
       return res.status(200).json({ discountCards })
@@ -11,7 +11,7 @@ class DiscountCardController {
     }
   }
 
-  async create(req, res) {
+  async adminCreate(req, res) {
     try {
       const {
         firstName,
@@ -36,7 +36,7 @@ class DiscountCardController {
     }
   }
 
-  async show(req, res) {
+  async adminShow(req, res) {
     try {
       const id = req.params.id
       const discountCard = DiscountCardModel.findById(id)
@@ -51,7 +51,7 @@ class DiscountCardController {
     }
   }
 
-  async update(req, res) {
+  async adminUpdate(req, res) {
     try {
       const id = req.params.id
       const {
@@ -79,7 +79,7 @@ class DiscountCardController {
     }
   }
 
-  async delete(req, res) {
+  async adminDelete(req, res) {
     try {
       const id = req.params.id
       const deletedDiscountCard = await DiscountCardModel.remove({ _id: id })

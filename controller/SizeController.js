@@ -11,7 +11,17 @@ class SizeController {
     }
   }
 
-  async create(req, res) {
+  async adminIndex(req, res) {
+    try {
+      const sizes = await SizeModel.find().populate('gender').populate('category')
+      return res.status(200).json({ sizes })
+    } catch (e) {
+      console.log(e);
+      res.status(500).json({ message: e.message })
+    }
+  }
+
+  async adminCreate(req, res) {
     try {
       const { name, gender, category } = req.body
       const newSize = new SizeModel({name, gender, category})
@@ -27,7 +37,7 @@ class SizeController {
     }
   }
 
-  async show(req, res) {
+  async adminShow(req, res) {
     try {
       const id = req.params.id
       const size = await SizeModel.findById(id).populate('gender').populate('category')
@@ -42,7 +52,7 @@ class SizeController {
     }
   }
 
-  async update(req, res) {
+  async adminUpdate(req, res) {
     try {
       const id = req.params.id
       const { name, gender, category } = req.body
@@ -59,7 +69,7 @@ class SizeController {
     }
   }
 
-  async delete(req, res) {
+  async adminDelete(req, res) {
     try {
       const id = req.params.id
       const deletedSize = await SizeModel.remove({ _id: id })

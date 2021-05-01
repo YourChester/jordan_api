@@ -11,7 +11,17 @@ class CategoryController {
     }
   }
 
-  async create(req, res) {
+  async adminIndex(req, res) {
+    try {
+      const categories = await CategoryModel.find().populate('parent')
+      return res.status(200).json({ categories })
+    } catch (e) {
+      console.log(e);
+      res.status(500).json({ message: e.message })
+    }
+  }
+
+  async adminCreate(req, res) {
     try {
       const { name, parent } = req.body
       const newCategory = new CategoryModel({name, parent})
@@ -27,7 +37,7 @@ class CategoryController {
     }
   }
 
-  async show(req, res) {
+  async adminShow(req, res) {
     try {
       const id = req.params.id
       const category = await CategoryModel.findById(id)
@@ -42,7 +52,7 @@ class CategoryController {
     }
   }
 
-  async update(req, res) {
+  async adminUpdate(req, res) {
     try {
       const id = req.params.id
       const { name, parent } = req.body
@@ -59,7 +69,7 @@ class CategoryController {
     }
   }
 
-  async delete(req, res) {
+  async adminDelete(req, res) {
     try {
       const id = req.params.id
       const deletedCategory = await CategoryModel.remove({ _id: id })

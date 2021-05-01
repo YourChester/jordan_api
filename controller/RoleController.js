@@ -1,7 +1,7 @@
 const RoleModel = require('../model/RoleModel')
 
 class RoleController {
-  async index(req, res) {
+  async adminIndex(req, res) {
     try {
       const rules = await RoleModel.find()
       return res.status(200).json({ rules })
@@ -11,7 +11,7 @@ class RoleController {
     }
   }
 
-  async create(req, res) {
+  async adminCreate(req, res) {
     try {
       const { name, key } = req.body
       const newRule = new RoleModel({name, key})
@@ -27,7 +27,7 @@ class RoleController {
     }
   }
 
-  async show(req, res) {
+  async adminShow(req, res) {
     try {
       const id = req.params.id
       const role = await RoleModel.findById(id)
@@ -42,7 +42,7 @@ class RoleController {
     }
   }
 
-  async update(req, res) {
+  async adminUpdate(req, res) {
     try {
       const id = req.params.id
       const { name, key } = req.body
@@ -59,7 +59,7 @@ class RoleController {
     }
   }
 
-  async delete(req, res) {
+  async adminDelete(req, res) {
     try {
       const id = req.params.id
       const deletedRole = await RoleModel.remove({ _id: id })

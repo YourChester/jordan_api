@@ -49,7 +49,7 @@ class ProductController {
     }
   }
 
-  async create(req, res) {
+  async adminCreate(req, res) {
     try {
       const {
         name,
@@ -114,6 +114,27 @@ class ProductController {
   }
 
   async show(req, res) {
+    try {
+      const id = req.params.id
+      const product = await ProductModel.findById(id)
+        .populate('gender')
+        .populate('size')
+        .populate('brand')
+        .populate('pair')
+        .populate('seller')
+      const curentImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.articul))
+      if (product !== null) {
+        return res.status(200).json({ product: { ...product, images: curentImages } })
+      } else {
+        return res.status(500).json({ message: 'Товар не найден'})
+      }
+    } catch (e) {
+      console.log(e);
+      res.status(500).json({ message: e.message })
+    }
+  }
+
+  async adminShow(req, res) {
     try {
       const id = req.params.id
       const product = await ProductModel.findById(id)

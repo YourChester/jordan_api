@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const SellerModel = require('../model/SellerModel')
 
 class SellerController {
-  async index(req, res) {
+  async adminIndex(req, res) {
     try {
       const sellers = await SellerModel.find().populate('role').select('password')
       return res.status(200).json({ sellers })
@@ -13,7 +13,7 @@ class SellerController {
     }
   }
 
-  async create(req, res) {
+  async adminCreate(req, res) {
     try {
       const { firstName, lastName, middleName, login, password, role } = req.body
 
@@ -37,7 +37,7 @@ class SellerController {
     }
   }
 
-  async show(req, res) {
+  async adminShow(req, res) {
     try {
       const id = req.params.id
       const seller = await SellerModel.findById(id).populate('role').select('password')
@@ -52,7 +52,7 @@ class SellerController {
     }
   }
 
-  async update(req, res) {
+  async adminUpdate(req, res) {
     try {
       const id = req.params.id
       const { firstName, lastName, middleName, login, password, role } = req.body
@@ -69,7 +69,7 @@ class SellerController {
     }
   }
 
-  async delete(req, res) {
+  async adminDelete(req, res) {
     try {
       const id = req.params.id
       const deletedSeller = await SellerModel.remove({ _id: id })
