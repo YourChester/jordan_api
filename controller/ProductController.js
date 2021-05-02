@@ -3,11 +3,11 @@ const fs = require('fs')
 
 const ProductModel = require('../model/ProductModel')
 
-const getCurentIndex = (articul, index, curentImages) => {
+const getCurrentIndex = (articul, index, curentImages) => {
   if (!curentImages.find(el => el.includes(`${articul}_${index}`))) {
     return index
   } else {
-    return getCurentIndex(articul, index + 1, curentImages)
+    return getCurrentIndex(articul, index + 1, curentImages)
   }
 }
 
@@ -178,7 +178,7 @@ class ProductController {
       if (images?.length) {
         images.forEach((image) => {
           const curentImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(test.articul))
-          const curentIndex = getCurentIndex(test.articul, 0, curentImages)
+          const curentIndex = getCurrentIndex(test.articul, 0, curentImages)
           const imageName = `${test.articul}_${curentIndex}.jpg`
           image.mv(path.resolve(__dirname, '..', 'static', imageName))
         })
@@ -210,13 +210,16 @@ class ProductController {
     try {
       const id = req.params.id
       const product = await ProductModel.findById(id)
+      const products = await ProductModel.find({ articul: product.articul, visibility: true })
 
-      const existFile = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.articul))
-      existFile.forEach((file) => {
-        if (file) {
-          fs.unlinkSync(path.resolve(__dirname, '..', 'static', file))
-        }
-      })
+      if (products.length === 1) {
+        const existFile = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.articul))
+        existFile.forEach((file) => {
+          if (file) {
+            fs.unlinkSync(path.resolve(__dirname, '..', 'static', file))
+          }
+        })
+      }
 
       const deletedProduct = await ProductModel.remove({ _id: id })
 

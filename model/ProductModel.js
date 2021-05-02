@@ -57,10 +57,10 @@ const productSchema = mongoose.Schema({
     type: Boolean,
     default: true
   },
-  seller: [{
+  seller: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'SellerModel'
-  }],
+  },
   comment: {
     type: String,
   },
