@@ -20,6 +20,10 @@ const productSchema = mongoose.Schema({
     required: true,
     ref: 'BrandModel'
   }],
+  provider: {
+    type: String,
+    default: ''
+  },
   codeBox: {
     type: Number,
     required: true

@@ -7,6 +7,8 @@ const router = require('./router/index.js')
 const ErrorMiddleware = require('./middleware/errorMiddleware.js')
 require('dotenv/config')
 
+const createGenders = require('./seeds/categories/CategoriesSeed')
+
 // Создание приложения
 const app = express()
 
@@ -30,6 +32,8 @@ mongoDB.connect(
     useNewUrlParser: true
   },
   () => {
+    const isNeedSeeds = process.argv[2]
+    
     console.log('----------');
     console.log('\x1b[32m');
     console.log('Server starting');
@@ -37,5 +41,10 @@ mongoDB.connect(
     console.log('\x1b[37m');
     console.log('----------');
     app.listen(process.env.API_PORT)
+    
+    if (isNeedSeeds === 'true') {
+      mongoDB.connection.db.dropCollection('categorymodels')
+      createGenders()
+    }
   }
 )

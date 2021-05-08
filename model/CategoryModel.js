@@ -7,7 +7,6 @@ const categorySchema = mongoose.Schema({
   },
   parent: {
     type: mongoose.Schema.Types.ObjectId,
-    default: '',
     ref: 'CategoryModel'
   }
 })

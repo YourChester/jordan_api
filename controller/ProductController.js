@@ -15,7 +15,7 @@ class ProductController {
   async index(req, res) {
     try {
       const products = await ProductModel.aggregate([
-        { $match: { show: true } },
+        { $match: { visibility: true } },
         { $group: { _id: "$articul", name: { $push: "$$ROOT" } } }
       ])
       const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.articul))
@@ -51,26 +51,7 @@ class ProductController {
 
   async adminCreate(req, res) {
     try {
-      const {
-        name,
-        gender,
-        size,
-        brand,
-        codeBox,
-        codeProduct,
-        articul,
-        pair,
-        priceIn,
-        priceOut,
-        priseSold,
-        discount,
-        canUseDiscount,
-        seller,
-        comment,
-        dateIn,
-        dateOut,
-        visibility
-      } = req.body
+      const body = req.body
 
       const { images } = req.files || {}
 
@@ -81,26 +62,7 @@ class ProductController {
         })
       }
 
-      const newProduct = new ProductModel({
-        name,
-        gender,
-        size,
-        brand,
-        codeBox,
-        codeProduct,
-        articul,
-        pair,
-        priceIn,
-        priceOut,
-        priseSold,
-        discount,
-        canUseDiscount,
-        seller,
-        comment,
-        dateIn,
-        dateOut,
-        visibility 
-      })
+      const newProduct = new ProductModel(body)
       await newProduct.save()
       if (newProduct !== null) {
         return res.status(200).json(newProduct)

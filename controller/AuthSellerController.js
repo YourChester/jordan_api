@@ -37,7 +37,7 @@ class AuthController {
 
   async logout(req, res) {
     try {
-      return res.status(200)
+      return res.status(200).json({ seller: {}, token: '' })
     }catch (e) {
       onsole.log(e.message)
     }
@@ -46,14 +46,17 @@ class AuthController {
   async getUserInfo(req, res) {
     try {
       const { id } = req.seller
-      const seller = await SellerModel.findOne({ _id: id }).populate('role')
+      const seller = await SellerModel.findOne({ _id: id })
+        .populate('role')
+        .select('login')
+        .select('firstName')
+        .select('lastName')
+        .select('middleName')
       if (!seller) {
         return res.status(400).json({ message: "Продавец не найден" })
       }
 
-      const { firstName, lastName, middleName, login, role } = seller
-
-      return res.status(200).json({ seller: { firstName, lastName, middleName, login, role } })
+      return res.status(200).json({seller})
     }catch (e) {
       console.log(e.message)
       res.status(400).json({ message: "Продавец не опознан"})

@@ -5,7 +5,7 @@ const SellerModel = require('../model/SellerModel')
 class SellerController {
   async adminIndex(req, res) {
     try {
-      const sellers = await SellerModel.find().populate('role').select('password')
+      const sellers = await SellerModel.find().populate('role').select('login').select('firstName')
       return res.status(200).json({ sellers })
     } catch (e) {
       console.log(e);
@@ -40,7 +40,7 @@ class SellerController {
   async adminShow(req, res) {
     try {
       const id = req.params.id
-      const seller = await SellerModel.findById(id).populate('role').select('password')
+      const seller = await SellerModel.findById(id).populate('role').select('login').select('firstName')
       if (seller !== null) {
         return res.status(200).json(role)
       } else {
@@ -55,10 +55,10 @@ class SellerController {
   async adminUpdate(req, res) {
     try {
       const id = req.params.id
-      const { firstName, lastName, middleName, login, password, role } = req.body
-      const updatedSeller = await SellerModel.updateOne({ _id: id }, { $set: { firstName, lastName, middleName, login, password, role } })
+      const body = req.body
+      const updatedSeller = await SellerModel.updateOne({ _id: id }, { $set: body })
       if (updatedSeller.nModified) {
-        const seller = await SellerModel.findById(id).populate('role').select('password')
+        const seller = await SellerModel.findById(id).populate('role').select('login').select('firstName')
         return res.status(200).json(seller)
       } else {
         return res.status(500).json({ message: 'Не удалось обновить продавца'})

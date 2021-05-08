@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const Rule = require('../shema/ruleShema')
 
 module.exports = function(rules) {
   return function(req, res, next) {
