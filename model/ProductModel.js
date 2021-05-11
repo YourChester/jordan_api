@@ -11,15 +11,13 @@ const productSchema = mongoose.Schema({
     ref: 'GenderModel'
   },
   size: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     required: true,
-    ref: 'SizeModel'
   },
-  brand: [{
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: 'BrandModel'
-  }],
+  brand: {
+    type: String,
+    required: true
+  },
   provider: {
     type: String,
     default: ''
@@ -38,7 +36,6 @@ const productSchema = mongoose.Schema({
   },
   pair: {
     type: mongoose.Schema.Types.ObjectId,
-    default: '',
     ref: 'ProductModel'
   },
   priceIn: {

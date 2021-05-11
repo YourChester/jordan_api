@@ -1,7 +1,7 @@
 const CategoryModel = require('../../model/CategoryModel')
 const formatedData = require('./Categories')
 
-async function createGenders() {
+async function createCategory() {
   try {
     const parentElement = []
     for (const el in formatedData) {
@@ -22,9 +22,10 @@ async function createGenders() {
         console.info(result);
       }
     }
+    console.log('Заполнение CategoryModel завершено');
   } catch(e) {
     console.log(e);
   }
 }
 
-module.exports = createGenders
+module.exports = createCategory

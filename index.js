@@ -7,7 +7,8 @@ const router = require('./router/index.js')
 const ErrorMiddleware = require('./middleware/errorMiddleware.js')
 require('dotenv/config')
 
-const createGenders = require('./seeds/categories/CategoriesSeed')
+const createCategory = require('./seeds/categories/CategoriesSeed')
+const createGenders = require('./seeds/genders/GenderSeed')
 
 // Создание приложения
 const app = express()
@@ -33,18 +34,21 @@ mongoDB.connect(
   },
   () => {
     const isNeedSeeds = process.argv[2]
+
+    app.listen(process.env.API_PORT)
     
+    if (isNeedSeeds === 'true') {
+      mongoDB.connection.db.dropCollection('categorymodels')
+      mongoDB.connection.db.dropCollection('gendermodels')
+      createCategory()
+      createGenders()
+    }
+
     console.log('----------');
     console.log('\x1b[32m');
     console.log('Server starting');
     console.log(`http://localhost:${process.env.API_PORT}/`);
     console.log('\x1b[37m');
     console.log('----------');
-    app.listen(process.env.API_PORT)
-    
-    if (isNeedSeeds === 'true') {
-      mongoDB.connection.db.dropCollection('categorymodels')
-      createGenders()
-    }
   }
 )
