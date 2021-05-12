@@ -37,6 +37,7 @@ class ProductController {
     try {
       const products = await ProductModel.find()
         .populate('gender')
+        .populate('category')
         .populate('pair')
         .populate('seller')
 
@@ -78,6 +79,7 @@ class ProductController {
       const id = req.params.id
       const product = await ProductModel.findById(id)
         .populate('gender')
+        .populate('category')
         .populate('pair')
         .populate('seller')
       const curentImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.articul))
@@ -97,6 +99,7 @@ class ProductController {
       const id = req.params.id
       const product = await ProductModel.findById(id)
         .populate('gender')
+        .populate('category')
         .populate('pair')
         .populate('seller')
       const curentImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.articul))
@@ -148,6 +151,7 @@ class ProductController {
       if (updatedProduct.nModified || fileChange) {
         const product = await ProductModel.findById(id)
           .populate('gender')
+          .populate('category')
           .populate('pair')
           .populate('seller')
         return res.status(200).json(product)

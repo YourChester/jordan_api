@@ -10,6 +10,11 @@ const productSchema = mongoose.Schema({
     required: true,
     ref: 'GenderModel'
   },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'CategoryModel'
+  },
   size: {
     type: String,
     required: true,

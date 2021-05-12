@@ -9,6 +9,7 @@ require('dotenv/config')
 
 const createCategory = require('./seeds/categories/CategoriesSeed')
 const createGenders = require('./seeds/genders/GenderSeed')
+const createProducts = require('./seeds/products/ProductsSeed')
 
 // Создание приложения
 const app = express()
@@ -40,8 +41,10 @@ mongoDB.connect(
     if (isNeedSeeds === 'true') {
       mongoDB.connection.db.dropCollection('categorymodels')
       mongoDB.connection.db.dropCollection('gendermodels')
+      mongoDB.connection.db.dropCollection('productmodels')
       createCategory()
       createGenders()
+      createProducts()
     }
 
     console.log('----------');

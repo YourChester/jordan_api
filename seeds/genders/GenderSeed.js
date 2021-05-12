@@ -4,13 +4,11 @@ const formatedData = require('./Categories')
 async function createGenders() {
   try {
     for (const el in formatedData) {
-      if (formatedData[el].parent) {
-        const newElement = new GenderModel({
-          name: formatedData[el]
-        })
-        const result = await newElement.save()
-        console.info(result);
-      }
+      const newElement = new GenderModel({
+        name: formatedData[el]
+      })
+      const result = await newElement.save()
+      console.info(result);
     }
     console.log('Заполнение GebdersModel завершено');
   } catch(e) {
