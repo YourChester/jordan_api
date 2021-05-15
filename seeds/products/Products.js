@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 
-const fileData = fs.readFileSync(path.resolve(__dirname, 'products.sql'))
+const fileData = fs.readFileSync(path.resolve(__dirname, 'product.sql'))
 const stringData = fileData.toString().split(',\r\n').map(el => {
   return el.replace(/[\)\(]/g, '')
 })
@@ -23,9 +23,9 @@ const formatedData = stringData.map(el => {
     codeProduct: arrayData[11].replace(/[\s']/g, ''),
     articul: arrayData[12].replace(/[\s']/g, ''),
     pare: arrayData[13].replace(/[\s']/g, ''),
-    dateIn: arrayData[14].replace(/[\s']/g, ''),
-    dateOut: arrayData[15].replace(/[\s']/g, ''),
-    createAt: arrayData[16].replace(/[\s']/g, ''),
+    dateIn: arrayData[14].replace(/[\s']/g, '') == 'NULL' ? new Date() : new Date(arrayData[14].replace(/[\s']/g, '').slice(0, 10)),
+    dateOut: arrayData[15].replace(/[\s']/g, '') == 'NULL' ? '' : new Date(arrayData[15].replace(/[\s']/g, '').slice(0, 10)),
+    createAt: arrayData[16].replace(/[\s']/g, '') == 'NULL' ? new Date() : new Date(arrayData[16].replace(/[\s']/g, '').slice(0, 10)),
     back: Number(arrayData[17]),
     notPare: Number(arrayData[18]),
     status: arrayData[19].replace(/[\s']/g, ''),

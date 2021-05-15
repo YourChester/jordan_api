@@ -10,8 +10,7 @@ async function createCategory() {
           name: formatedData[el].name,
           parent: parentElement[formatedData[el].parent - 1]
         })
-        const result = await newElement.save()
-        console.info(result);
+        await newElement.save()
       } else {
         console.log(el);
         const newElement = new CategoryModel({
@@ -19,7 +18,6 @@ async function createCategory() {
         })
         const result = await newElement.save()
         parentElement.push(result._id)
-        console.info(result);
       }
     }
     console.log('Заполнение CategoryModel завершено');

@@ -12,16 +12,10 @@ const discountCardsAdmin = require('./DiscountCardsAdmin')
 const categoryiesUser = require('./CategoryiesUser')
 const categoryiesAdmin = require('./CategoryiesAdmin')
 
-const brandsUser = require('./BrandsUser')
-const brandsAdmin = require('./BrandsAdmin')
-
 const rolesAdmin = require('./RolesAdmin')
 
 const authSellerAdmin = require('./AuthSellerAdmin')
 const sellersAdmin = require('./SellersAdmin')
-
-const sizesUser = require('./SizesUser')
-const sizesAdmin = require('./SizesAdmin')
 
 const usersUser = require('./UsersUser')
 const usersAdmin = require('./UsersAdmin')
@@ -37,16 +31,10 @@ router.use('/admin/discountCards', discountCardsAdmin)
 router.use('/categoryies', categoryiesUser)
 router.use('/admin/categoryies', categoryiesAdmin)
 
-router.use('/brands', brandsUser)
-router.use('/admin/brands', brandsAdmin)
-
 router.use('/admin/roles', rolesAdmin)
 
 router.use('/admin/auth', authSellerAdmin)
 router.use('/admin/sellers', sellersAdmin)
-
-router.use('/sizes', sizesUser)
-router.use('/admin/sizes', sizesAdmin)
 
 router.use('/users', usersUser)
 router.use('/admin/users', usersAdmin)

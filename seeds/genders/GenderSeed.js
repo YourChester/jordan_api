@@ -1,5 +1,5 @@
 const GenderModel = require('../../model/GenderModel')
-const formatedData = require('./Categories')
+const formatedData = require('./Genders')
 
 async function createGenders() {
   try {
@@ -7,8 +7,7 @@ async function createGenders() {
       const newElement = new GenderModel({
         name: formatedData[el]
       })
-      const result = await newElement.save()
-      console.info(result);
+      await newElement.save()
     }
     console.log('Заполнение GebdersModel завершено');
   } catch(e) {

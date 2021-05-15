@@ -33,18 +33,19 @@ mongoDB.connect(
     useUnifiedTopology: true,
     useNewUrlParser: true
   },
-  () => {
-    const isNeedSeeds = process.argv[2]
-
+  async () => {
+    const isNeedSeeds = process.argv[2] === '--seed'
+    
     app.listen(process.env.API_PORT)
     
-    if (isNeedSeeds === 'true') {
+    if (isNeedSeeds) {
       mongoDB.connection.db.dropCollection('categorymodels')
       mongoDB.connection.db.dropCollection('gendermodels')
       mongoDB.connection.db.dropCollection('productmodels')
-      createCategory()
-      createGenders()
-      createProducts()
+      await createCategory()
+      await createGenders()
+      await createProducts()
+      return
     }
 
     console.log('----------');

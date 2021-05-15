@@ -17,11 +17,9 @@ const productSchema = mongoose.Schema({
   },
   size: {
     type: String,
-    required: true,
   },
   brand: {
     type: String,
-    required: true
   },
   provider: {
     type: String,
@@ -37,7 +35,6 @@ const productSchema = mongoose.Schema({
   },
   articul: {
     type: String,
-    required: true
   },
   pair: {
     type: mongoose.Schema.Types.ObjectId,
