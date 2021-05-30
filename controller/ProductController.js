@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const { ObjectId } = require('mongodb')
 
 const ProductModel = require('../model/ProductModel')
 
@@ -14,14 +15,28 @@ const getCurrentIndex = (articul, index, curentImages) => {
 class ProductController {
   async index(req, res) {
     try {
+      const limit = Number(req.query.limit) || 25
+      const payload = {
+        visibility: true
+      }
+
+      if (req.query.gender) {
+        payload.gender = ObjectId(req.query.gender)
+      }
+      if (req.query.category) {
+        payload.category = ObjectId(req.query.category)
+      }
+
       const products = await ProductModel.aggregate([
-        { $match: { visibility: true } },
-        { $group: { _id: "$articul", name: { $push: "$$ROOT" } } }
-      ])
+        { $sort: { dateIn: -1 } },
+        { $match: { ...payload } },
+        { $group: { _id: "$articul", products: { $push: "$$ROOT" } } }
+      ]).limit(limit)
+
       const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.articul))
       const productWithImage = products.map(product => {
         const curentImages = images.filter(image => image.includes(product._id))
-        product = {
+        return product = {
           ...product,
           images: curentImages
         }
@@ -35,7 +50,7 @@ class ProductController {
 
   async adminIndex(req, res) {
     try {
-      const products = await ProductModel.find()
+      const products = await ProductModel.find().sort({dateIn: -1})
         .populate('gender')
         .populate('category')
         .populate('pair')

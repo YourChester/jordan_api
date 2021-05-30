@@ -20,6 +20,8 @@ const sellersAdmin = require('./SellersAdmin')
 const usersUser = require('./UsersUser')
 const usersAdmin = require('./UsersAdmin')
 
+const codebooks = require('./Codebooks')
+
 router.use('/products', productsUser)
 router.use('/admin/products', productsAdmin)
 
@@ -38,6 +40,8 @@ router.use('/admin/sellers', sellersAdmin)
 
 router.use('/users', usersUser)
 router.use('/admin/users', usersAdmin)
+
+router.use('/codebooks', codebooks)
 
 const test = require('./test')
 router.use('/test', test)

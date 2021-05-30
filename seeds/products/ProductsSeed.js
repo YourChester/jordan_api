@@ -25,7 +25,7 @@ function getCurrentCategory(id, categories) {
       const currentCategory = categoriesHelper.find(el => el.id === 3)
       return categories.find(el => el.name === currentCategory.name)._id
     } else {
-      const currentCategory = categoriesHelper.find(el => el.id === 3)
+      const currentCategory = categoriesHelper.find(el => el.id === id)
       return categories.find(el => el.name === currentCategory.name)._id
     }
   } else {

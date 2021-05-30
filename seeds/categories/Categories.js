@@ -10,7 +10,7 @@ const formatedData = stringData.map(el => {
   const arrayData = el.split(',')
   return {
     id:  Number(arrayData[0]),
-    name: arrayData[2].replace(/[\s']/g, ''),
+    name: arrayData[2].trim().replace(/[']/g, ''),
     parent: Number(arrayData[1]),
   }
 })
