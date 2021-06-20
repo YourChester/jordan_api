@@ -5,11 +5,10 @@ const productSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  gender: {
+  gender: [{
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
     ref: 'GenderModel'
-  },
+  }],
   category: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -26,12 +25,10 @@ const productSchema = mongoose.Schema({
     default: ''
   },
   codeBox: {
-    type: Number,
-    required: true
+    type: String
   },
   codeProduct: {
-    type: Number,
-    default: 0
+    type: String
   },
   articul: {
     type: String,
@@ -41,16 +38,13 @@ const productSchema = mongoose.Schema({
     ref: 'ProductModel'
   },
   priceIn: {
-    type: Number,
-    required: true
+    type: Number
   },
   priceOut: {
-    type: Number,
-    required: true
+    type: Number
   },
   priseSold: {
-    type: Number,
-    required: true
+    type: Number
   },
   discount: {
     type: Number,

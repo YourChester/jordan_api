@@ -1,5 +1,6 @@
 const CategoryModel = require('../model/CategoryModel')
 const GenderModel = require('../model/GenderModel')
+const ProductModel = require('../model/ProductModel')
 
 class CodebooksController {
 
@@ -46,6 +47,19 @@ class CodebooksController {
     try {
       const categories = await CategoryModel.find().populate('parent')
       return res.status(200).json({ categories })
+    } catch (e) {
+      console.log(e);
+      res.status(500).json({ message: e.message })
+    }
+  }
+
+  async getSizes(req, res) {
+    try {
+      const sizeFilters = await ProductModel.aggregate([
+        { $group: { _id: "$size" } },
+        { $sort: { _id: 1 } }
+      ])
+      return res.status(200).json({ sizes: sizeFilters.map(el => el._id) })
     } catch (e) {
       console.log(e);
       res.status(500).json({ message: e.message })

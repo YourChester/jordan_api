@@ -6,15 +6,35 @@ const categoriesHelper = require('../categories/Categories')
 const gendersHelper = [
   {
     id: 1,
-    name: 'Мужчины'
+    name: ['Мужчины']
+  },
+  {
+    id: 3,
+    name: ['Мужчины', 'Женщины']
   },
   {
     id: 2,
-    name: 'Женщины'
+    name: ['Женщины']
+  },
+  {
+    id: 5,
+    name: ['Мужчины', 'Дети']
+  },
+  {
+    id: 6,
+    name: ['Женщины', 'Дети']
   },
   {
     id: 4,
-    name: 'Дети'
+    name: ['Дети']
+  },
+  {
+    id: 0,
+    name: 'Пусто'
+  },
+  {
+    id: 7,
+    name: ['Мужчины', 'Женщины', 'Дети']
   }
 ]
 const formatedData = require('./Products')
@@ -34,11 +54,18 @@ function getCurrentCategory(id, categories) {
 }
 
 function getCurrentGender(id, genders) {
-  const currentGender = gendersHelper.find(el => el.id === id)
-  if (currentGender) {
-    return genders.find(el => el.name === currentGender.name)._id
-  } else {
-    return genders[0]._id
+  if (id > 0) {
+    const currentGenders = gendersHelper.find(el => el.id === id)
+    if (currentGenders) {
+      const currentGendersIds = []
+      currentGenders.name.forEach(el => {
+        const id = genders.find(gender => gender.name === el)._id
+        if (id) {
+          currentGendersIds.push(id)
+        }
+      })
+      return currentGendersIds
+    }
   }
 }
 
@@ -59,7 +86,7 @@ async function createProducts() {
         size: formatedData[index].size,
         brand: formatedData[index].brand,
         provider: '',
-        codeBox: formatedData[index].codeBox | formatedData[index].codeProduct,
+        codeBox: formatedData[index].codeBox,
         codeProduct: formatedData[index].codeProduct,
         articul: formatedData[index].articul,
         priceIn: formatedData[index].priceIn,
