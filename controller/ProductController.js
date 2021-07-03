@@ -66,7 +66,10 @@ class ProductController {
       const limit = Number(req.query.limit) || 40
       const offSet = limit * page - limit
       const payload = {
-        visibility: true
+      }
+
+      if (req.query.visibility) {
+        payload.visibility = req.query.visibility
       }
       if (req.query.search) {
         payload.$or = [
@@ -88,7 +91,7 @@ class ProductController {
       
       const productWithImage = products.map((product) => {
         if (product.articul) {
-          const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.articul))
+          const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.articul))
           return {
             ...product._doc,
             images: images
@@ -124,7 +127,7 @@ class ProductController {
       let productWithImage = {}
       
       if (product.articul) {
-        const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.articul))
+        const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.articul))
         productWithImage = {
           ...product._doc,
           images: images
@@ -189,7 +192,7 @@ class ProductController {
       const id = req.params.id
       const product = await ProductModel.findById(id)
 
-      const curentImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.articul))
+      const curentImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.articul))
       if (product !== null) {
         return res.status(200).json({ product: { ...product._doc, images: curentImages } })
       } else {

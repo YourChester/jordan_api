@@ -10,6 +10,10 @@ require('dotenv/config')
 const createCategory = require('./seeds/categories/CategoriesSeed')
 const createGenders = require('./seeds/genders/GenderSeed')
 const createProducts = require('./seeds/products/ProductsSeed')
+const createSeller = require('./seeds/seller/SellersSeed')
+const createRoles = require('./seeds/roles/RolesSeed')
+const createDiscountCards = require('./seeds/discountCards/DiscountCardsSeed')
+const CodebooksController = require('./controller/CodebooksController')
 
 // Создание приложения
 const app = express()
@@ -42,11 +46,23 @@ mongoDB.connect(
       mongoDB.connection.db.dropCollection('categorymodels')
       mongoDB.connection.db.dropCollection('gendermodels')
       mongoDB.connection.db.dropCollection('productmodels')
+      mongoDB.connection.db.dropCollection('discountcardmodels')
+      mongoDB.connection.db.dropCollection('rolemodels')
+      mongoDB.connection.db.dropCollection('sellermodels')
       await createCategory()
       await createGenders()
       await createProducts()
+      await createDiscountCards()
+      await createRoles()
+      await createSeller()
       return
     }
+
+    CodebooksController.buildMenu()
+
+    setInterval(()=>{
+      CodebooksController.buildMenu()
+    }, 1000 * 60 * 24)
 
     console.log('----------');
     console.log('\x1b[32m');

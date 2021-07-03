@@ -32,7 +32,7 @@ const formatedData = stringData.map(el => {
     sellerId: Number(arrayData[20].replace(/[\s']/g, '')),
     soldCard: Number(arrayData[21].replace(/[\s']/g, '')),
     comment: arrayData[22].replace(/[\s']/g, ''),
-    visibility: !!Number(arrayData[24].replace(/[\s']/g, ''))
+    visibility: arrayData[19].replace(/[\s']/g, '') === 'shop',
   }
 })
 

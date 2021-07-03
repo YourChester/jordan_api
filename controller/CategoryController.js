@@ -1,16 +1,6 @@
 const CategoryModel = require('../model/CategoryModel')
 
 class CategoryController {
-  async index(req, res) {
-    try {
-      const categories = await CategoryModel.find().populate('parent')
-      return res.status(200).json({ categories })
-    } catch (e) {
-      console.log(e);
-      res.status(500).json({ message: e.message })
-    }
-  }
-
   async adminIndex(req, res) {
     try {
       const categories = await CategoryModel.find().populate('parent')

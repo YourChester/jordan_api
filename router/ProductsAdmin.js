@@ -1,13 +1,14 @@
 const Router = require('express')
 const router = new Router()
+const roleMiddleware = require('../middleware/ruleMiddleware')
 
 const ProductController = require('../controller/ProductController')
 
-router.get('/', ProductController.adminIndex)
-router.post('/', ProductController.adminCreate)
-router.get('/:id', ProductController.adminShow)
-router.get('/articul/:id', ProductController.adminSearchByArticul)
-router.put('/:id', ProductController.adminUpdate)
-router.delete('/:id', ProductController.adminDelete)
+router.get('/', roleMiddleware(['admin', 'manager']), ProductController.adminIndex)
+router.post('/', roleMiddleware(['admin', 'manager']), ProductController.adminCreate)
+router.get('/:id', roleMiddleware(['admin', 'manager']), ProductController.adminShow)
+router.get('/articul/:id', roleMiddleware(['admin', 'manager']), ProductController.adminSearchByArticul)
+router.put('/:id', roleMiddleware(['admin', 'manager']), ProductController.adminUpdate)
+router.delete('/:id', roleMiddleware(['admin', 'manager']), ProductController.adminDelete)
 
 module.exports = router

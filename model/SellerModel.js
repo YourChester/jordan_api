@@ -1,17 +1,9 @@
 const mongoose = require('mongoose')
 
 const staffSchema = mongoose.Schema({
-  firstName: {
+  name: {
     type: String,
     required: true
-  },
-  lastName: {
-    type: String,
-    required: true
-  },
-  middleName: {
-    type: String,
-    default: ''
   },
   login: {
     type: String,
@@ -26,6 +18,10 @@ const staffSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: 'RoleModel'
+  },
+  visibility: {
+    type: Boolean,
+    default: true
   }
 })
 

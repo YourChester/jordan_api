@@ -9,7 +9,7 @@ generateUserToken = ( id, role) => {
     id,
     role,
   }
-  return jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: "12h"})
+  return jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: `${1000 * 60 * 8}`})
 }
 
 class AuthController {
@@ -49,9 +49,7 @@ class AuthController {
       const seller = await SellerModel.findOne({ _id: id })
         .populate('role')
         .select('login')
-        .select('firstName')
-        .select('lastName')
-        .select('middleName')
+        .select('name')
       if (!seller) {
         return res.status(400).json({ message: "Продавец не найден" })
       }

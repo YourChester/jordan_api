@@ -9,7 +9,6 @@ const gendersAdmin = require('./GendersAdmin')
 
 const discountCardsAdmin = require('./DiscountCardsAdmin')
 
-const categoryiesUser = require('./CategoryiesUser')
 const categoryiesAdmin = require('./CategoryiesAdmin')
 
 const rolesAdmin = require('./RolesAdmin')
@@ -20,6 +19,8 @@ const sellersAdmin = require('./SellersAdmin')
 const usersUser = require('./UsersUser')
 const usersAdmin = require('./UsersAdmin')
 
+const soldsAdmin = require('./SoldAdmin')
+
 const codebooks = require('./Codebooks')
 const filters = require('./Filters')
 const file = require('./File')
@@ -27,14 +28,14 @@ const file = require('./File')
 router.use('/products', productsUser)
 router.use('/admin/products', productsAdmin)
 router.use('/admin/file', file)
+router.use('/admin/solds', soldsAdmin)
 
 
 router.use('/genders', gendersUser)
 router.use('/admin/genders', gendersAdmin)
 
-router.use('/admin/discountCards', discountCardsAdmin)
+router.use('/admin/discount-cards', discountCardsAdmin)
 
-router.use('/categoryies', categoryiesUser)
 router.use('/admin/categoryies', categoryiesAdmin)
 
 router.use('/admin/roles', rolesAdmin)

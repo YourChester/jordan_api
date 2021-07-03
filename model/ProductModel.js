@@ -58,6 +58,10 @@ const productSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'SellerModel'
   },
+  notPair: {
+    type: Boolean,
+    default: false
+  },
   comment: {
     type: String,
   },

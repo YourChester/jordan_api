@@ -9,7 +9,7 @@ async function createGenders() {
       })
       await newElement.save()
     }
-    console.log('Заполнение GebdersModel завершено');
+    console.log('Заполнение GendersModel завершено');
   } catch(e) {
     console.log(e);
   }

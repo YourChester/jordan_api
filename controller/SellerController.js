@@ -5,7 +5,7 @@ const SellerModel = require('../model/SellerModel')
 class SellerController {
   async adminIndex(req, res) {
     try {
-      const sellers = await SellerModel.find().populate('role').select('login').select('firstName')
+      const sellers = await SellerModel.find({ visibility: true }).select('login').select('name').select('login').select('role')
       return res.status(200).json({ sellers })
     } catch (e) {
       console.log(e);
@@ -15,7 +15,7 @@ class SellerController {
 
   async adminCreate(req, res) {
     try {
-      const { firstName, lastName, middleName, login, password, role } = req.body
+      const { name, login, password, role } = req.body
 
       const sellerCondidate = await SellerModel.findOne({ login })
       if (sellerCondidate) {
@@ -24,7 +24,7 @@ class SellerController {
 
       const hashPassword = bcrypt.hashSync(password, Number(process.env.SALT_HASH))
 
-      const newSeller = new SellerModel({firstName, lastName, middleName, login, password: hashPassword, role})
+      const newSeller = new SellerModel({name, login, password: hashPassword, role})
       await newSeller.save()
       if (newSeller !== null) {
         return res.status(200).json(newSeller)
@@ -40,7 +40,7 @@ class SellerController {
   async adminShow(req, res) {
     try {
       const id = req.params.id
-      const seller = await SellerModel.findById(id).populate('role').select('login').select('firstName')
+      const seller = await SellerModel.findById(id).populate('role').select('login').select('name')
       if (seller !== null) {
         return res.status(200).json(role)
       } else {
@@ -55,10 +55,13 @@ class SellerController {
   async adminUpdate(req, res) {
     try {
       const id = req.params.id
-      const body = req.body
-      const updatedSeller = await SellerModel.updateOne({ _id: id }, { $set: body })
+      const { name, login, password, role } = req.body
+
+      const hashPassword = bcrypt.hashSync(body.password, Number(process.env.SALT_HASH))
+
+      const updatedSeller = await SellerModel.updateOne({ _id: id }, { $set: { name, login, password: hashPassword, role } })
       if (updatedSeller.nModified) {
-        const seller = await SellerModel.findById(id).populate('role').select('login').select('firstName')
+        const seller = await SellerModel.findById(id).populate('role').select('login').select('name')
         return res.status(200).json(seller)
       } else {
         return res.status(500).json({ message: 'Не удалось обновить продавца'})

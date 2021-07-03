@@ -78,7 +78,6 @@ async function createProducts() {
       const currentCategory = getCurrentCategory(formatedData[index].category, categories)
       const currentGender = getCurrentGender(formatedData[index].gender, genders)
 
-      console.log(formatedData[index].id);
       const newElement = new ProductModel({
         name: formatedData[index].name,
         gender: currentGender,
@@ -98,8 +97,10 @@ async function createProducts() {
         dateOut: formatedData[index].dateOut,
         createAt: formatedData[index].createAt,
         visibility: formatedData[index].visibility,
+        notPair: !!formatedData[index].notPair
       })
       await newElement.save()
+      console.log(formatedData[index].id)
     }
     console.log('Заполнение ProductModel завершено');
   } catch(e) {

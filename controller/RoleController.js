@@ -3,8 +3,8 @@ const RoleModel = require('../model/RoleModel')
 class RoleController {
   async adminIndex(req, res) {
     try {
-      const rules = await RoleModel.find()
-      return res.status(200).json({ rules })
+      const roles = await RoleModel.find()
+      return res.status(200).json({ roles })
     } catch (e) {
       console.log(e);
       res.status(500).json({ message: e.message })

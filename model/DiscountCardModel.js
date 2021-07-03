@@ -1,29 +1,31 @@
 const mongoose = require('mongoose')
 
 const discountCardSchema = mongoose.Schema({
-  firstName: {
-    type: String,
+  code: {
+    type: Number,
     required: true
   },
-  lastName: {
+  name: {
     type: String,
-    required: true
-  },
-  middleName: {
-    type: String,
-    default: ''
   },
   phone: {
     type: String,
     default: ''
   },
+  email: {
+    type: String,
+    default: ''
+  },
+  address: {
+    type: String,
+    default: ''
+  },
   birthday: {
-    type: Date,
-    required: true
+    type: String,
+    default: ''
   },
   discount: {
     type: Number,
-    required: true
   },
   comment: {
     type: String,
