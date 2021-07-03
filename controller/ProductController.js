@@ -16,7 +16,9 @@ const getCurrentIndex = (articul, index, curentImages) => {
 class ProductController {
   async index(req, res) {
     try {
+      const page = req.query.page
       const limit = Number(req.query.limit) || 12
+      const offSet = limit * page - limit
       const payload = {
         visibility: true
       }
@@ -44,7 +46,9 @@ class ProductController {
         { $match: { ...payload } },
         { $group: { _id: "$articul", name: { $first: "$name" }, dateIn: { $first: "$dateIn"}, products: { $push: "$$ROOT" } } },
         { $sort: { name: 1 } }
-      ]).limit(limit)
+      ]).skip(offSet).limit(limit)
+
+      const totalProducts = await ProductModel.countDocuments({...payload})
 
       const productWithImage = products.map(product => {
         const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product._id))
@@ -53,7 +57,11 @@ class ProductController {
           images: images
         }
       })
-      return res.status(200).json({ products: productWithImage })
+      return res.status(200).json({ 
+        products: productWithImage,
+        totalCount: totalProducts,
+        totalPages: Math.ceil(totalProducts / limit)
+      })
     } catch (e) {
       console.log(e);
       res.status(500).json({ message: e.message })
