@@ -47,24 +47,26 @@ mongoDB.connect(
     useNewUrlParser: true
   },
   async () => {
-    // const isNeedSeeds = process.argv[2] === '--seed'
+    const isNeedSeeds = process.argv[2] === '--seed'
     
     app.listen(process.env.API_PORT)
     
-    // if (isNeedSeeds) {
-    mongoDB.connection.db.dropCollection('categorymodels')
-    mongoDB.connection.db.dropCollection('gendermodels')
-    mongoDB.connection.db.dropCollection('productmodels')
-    mongoDB.connection.db.dropCollection('discountcardmodels')
-    mongoDB.connection.db.dropCollection('rolemodels')
-    mongoDB.connection.db.dropCollection('sellermodels')
-    await createCategory()
-    await createGenders()
-    await createProducts()
-    await createDiscountCards()
-    await createRoles()
-    await createSeller()
-    // }
+    if (isNeedSeeds) {
+      mongoDB.connection.db.dropCollection('categorymodels')
+      mongoDB.connection.db.dropCollection('gendermodels')
+      mongoDB.connection.db.dropCollection('productmodels')
+      mongoDB.connection.db.dropCollection('discountcardmodels')
+      mongoDB.connection.db.dropCollection('rolemodels')
+      mongoDB.connection.db.dropCollection('sellermodels')
+      mongoDB.connection.db.dropCollection('soldmodels')
+      
+      await createCategory()
+      await createGenders()
+      await createProducts()
+      await createDiscountCards()
+      await createRoles()
+      await createSeller()
+    }
 
     CodebooksController.buildMenu()
 
