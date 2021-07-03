@@ -26,6 +26,9 @@ app.use(express.static(path.resolve(__dirname, "./dist")));
 app.get("/", (request, response) => {
   response.sendFile(path.resolve(__dirname, "./dist/index.html"));
 });
+app.get("/favicon.ico", (request, response) => {
+  response.sendFile(path.resolve(__dirname, "./dist/favicon.ico"));
+});
 app.use(expressFileupload({}))
 
 
