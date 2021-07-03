@@ -49,7 +49,7 @@ class CodebooksController {
         })
       }
 
-      fs.writeFileSync(path.resolve(__dirname, '..', 'static', 'menu.json'), JSON.stringify(menu))
+      fs.writeFileSync(path.resolve(__dirname, '..', 'menu.json'), JSON.stringify(menu))
     } catch (e) {
       console.log(e);
       res.status(500).json({ message: e.message })
@@ -58,7 +58,7 @@ class CodebooksController {
 
   async getMenuTree(req, res) {
     try {
-      const fileData = fs.readFileSync(path.resolve(__dirname, '..', 'static', 'menu.json'))
+      const fileData = fs.readFileSync(path.resolve(__dirname, '..', 'menu.json'))
       
       return res.status(200).json({ menu: JSON.parse(fileData)})
     } catch (e) {
