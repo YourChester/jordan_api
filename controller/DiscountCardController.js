@@ -14,13 +14,19 @@ class DiscountCardController {
       if (req.query.code) {
         payload.code = req.query.code
       }
+      if (req.query.name) {
+        payload.name = new RegExp(req.query.name, 'i')
+      }
+      if (req.query.phone) {
+        payload.phone = new RegExp(req.query.phone, 'i')
+      }
 
       const discountCards = await DiscountCardModel.find({...payload})
         .sort({ 'code': -1 })
         .skip(offSet)
         .limit(limit)
 
-      const totalElement = await DiscountCardModel.countDocuments()
+      const totalElement = await DiscountCardModel.countDocuments({...payload})
     
       return res.status(200).json({ 
         discountCards,

@@ -10,7 +10,7 @@ class FiltersController {
         visibility: true
       }
 
-      if (req.query.gender) {
+      if (req.query.gender && req.query.gender !== 'all') {
         payload.gender = ObjectId(req.query.gender)
       }
       if (req.query.category) {
@@ -74,7 +74,7 @@ class FiltersController {
         visibility: true
       }
 
-      if (req.query.gender) {
+      if (req.query.gender && req.query.gender !== 'all') {
         payload.gender = ObjectId(req.query.gender)
       }
       if (req.query.category) {
@@ -96,7 +96,7 @@ class FiltersController {
       brandsFilters.map(el => {
         return el._id
       })
-      return res.status(200).json({ brands: brandsFilters.map(el => el._id) })
+      return res.status(200).json({ brands: brandsFilters.map(el => el._id).sort() })
     } catch (e) {
       console.log(e);
       res.status(500).json({ message: e.message })

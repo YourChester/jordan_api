@@ -21,20 +21,20 @@ const app = express()
 // Подключение расширений
 app.use(cors({origin: process.env.FRONT_URL}))
 app.use(express.json())
-app.use('/api/static/', express.static(path.resolve(__dirname, 'static')))
-app.use(express.static(path.resolve(__dirname, "./dist")));
-app.get("/", (request, response) => {
-  response.sendFile(path.resolve(__dirname, "./dist/index.html"));
-});
-app.get("/favicon.ico", (request, response) => {
-  response.sendFile(path.resolve(__dirname, "./dist/favicon.ico"));
-});
 app.use(expressFileupload({}))
 
 
 
 // Использование роутов
 app.use('/api/', router)
+app.use('/api/static/', express.static(path.resolve(__dirname, 'static')))
+app.use(express.static(path.resolve(__dirname, "./dist")));
+app.get("*", (request, response) => {
+  response.sendFile(path.resolve(__dirname, "./dist/index.html"));
+});
+app.get("/favicon.ico", (request, response) => {
+  response.sendFile(path.resolve(__dirname, "./dist/favicon.ico"));
+});
 
 // Обработка описанных ошибок
 app.use(ErrorMiddleware)
@@ -47,26 +47,26 @@ mongoDB.connect(
     useNewUrlParser: true
   },
   async () => {
-    const isNeedSeeds = process.argv[2] === '--seed'
+    // const isNeedSeeds = process.argv[2] === '--seed'
     
     app.listen(process.env.API_PORT)
     
-    if (isNeedSeeds) {
-      mongoDB.connection.db.dropCollection('categorymodels')
-      mongoDB.connection.db.dropCollection('gendermodels')
-      mongoDB.connection.db.dropCollection('productmodels')
-      mongoDB.connection.db.dropCollection('discountcardmodels')
-      mongoDB.connection.db.dropCollection('rolemodels')
-      mongoDB.connection.db.dropCollection('sellermodels')
-      mongoDB.connection.db.dropCollection('soldmodels')
+    // if (isNeedSeeds) {
+    //   mongoDB.connection.db.dropCollection('categorymodels')
+    //   mongoDB.connection.db.dropCollection('gendermodels')
+    //   mongoDB.connection.db.dropCollection('productmodels')
+    //   mongoDB.connection.db.dropCollection('discountcardmodels')
+    //   mongoDB.connection.db.dropCollection('rolemodels')
+    //   mongoDB.connection.db.dropCollection('sellermodels')
+    //   mongoDB.connection.db.dropCollection('soldmodels')
       
-      await createCategory()
-      await createGenders()
-      await createProducts()
-      await createDiscountCards()
-      await createRoles()
-      await createSeller()
-    }
+    //   await createCategory()
+    //   await createGenders()
+    //   await createProducts()
+    //   await createDiscountCards()
+    //   await createRoles()
+    //   await createSeller()
+    // }
 
     CodebooksController.buildMenu()
 

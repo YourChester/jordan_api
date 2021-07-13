@@ -23,7 +23,7 @@ class ProductController {
         visibility: true
       }
 
-      if (req.query.gender) {
+      if (req.query.gender && req.query.gender !== 'all') {
         payload.gender = ObjectId(req.query.gender)
       }
       if (req.query.category) {
