@@ -97,6 +97,7 @@ async function createProducts() {
         dateOut: formatedData[index].dateOut,
         createAt: formatedData[index].createAt,
         visibility: formatedData[index].visibility,
+        pair: formatedData[index].pair,
         notPair: !!formatedData[index].notPair
       })
       await newElement.save()

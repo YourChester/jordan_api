@@ -12,6 +12,7 @@ const createGenders = require('./seeds/genders/GenderSeed')
 const createProducts = require('./seeds/products/ProductsSeed')
 const createSeller = require('./seeds/seller/SellersSeed')
 const createRoles = require('./seeds/roles/RolesSeed')
+const createCosts = require('./seeds/costs/CostsSeed')
 const createDiscountCards = require('./seeds/discountCards/DiscountCardsSeed')
 const CodebooksController = require('./controller/CodebooksController')
 
@@ -47,32 +48,34 @@ mongoDB.connect(
     useNewUrlParser: true
   },
   async () => {
-    // const isNeedSeeds = process.argv[2] === '--seed'
+    const isNeedSeeds = process.argv[2] === '--seed'
     
     app.listen(process.env.API_PORT)
     
-    // if (isNeedSeeds) {
-    //   mongoDB.connection.db.dropCollection('categorymodels')
-    //   mongoDB.connection.db.dropCollection('gendermodels')
-    //   mongoDB.connection.db.dropCollection('productmodels')
-    //   mongoDB.connection.db.dropCollection('discountcardmodels')
-    //   mongoDB.connection.db.dropCollection('rolemodels')
-    //   mongoDB.connection.db.dropCollection('sellermodels')
-    //   mongoDB.connection.db.dropCollection('soldmodels')
+    if (isNeedSeeds) {
+      // mongoDB.connection.db.dropCollection('categorymodels')
+      // mongoDB.connection.db.dropCollection('gendermodels')
+      // mongoDB.connection.db.dropCollection('productmodels')
+      // mongoDB.connection.db.dropCollection('discountcardmodels')
+      // mongoDB.connection.db.dropCollection('rolemodels')
+      // mongoDB.connection.db.dropCollection('sellermodels')
+      // mongoDB.connection.db.dropCollection('soldmodels')
+      // mongoDB.connection.db.dropCollection('costsmodel')
       
-    //   await createCategory()
-    //   await createGenders()
-    //   await createProducts()
-    //   await createDiscountCards()
-    //   await createRoles()
-    //   await createSeller()
-    // }
+      await createCategory()
+      await createGenders()
+      await createProducts()
+      await createDiscountCards()
+      await createRoles()
+      await createSeller()
+      // await createCosts()
+    }
 
     CodebooksController.buildMenu()
 
-    setInterval(()=>{
-      CodebooksController.buildMenu()
-    }, 1000 * 60 * 24)
+    // setInterval(()=>{
+    //   CodebooksController.buildMenu()
+    // }, 1000 * 60 * 24)
 
     console.log('----------');
     console.log('\x1b[32m');

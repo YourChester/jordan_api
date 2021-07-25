@@ -19,6 +19,9 @@ const SoldSchema = mongoose.Schema({
   totalPrice: {
     type: String,
   },
+  totalIncome: {
+    type: String,
+  },
   products: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'ProductModel'

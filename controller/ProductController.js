@@ -22,6 +22,7 @@ class ProductController {
       const payload = {
         visibility: true
       }
+      const sort = {}
 
       if (req.query.gender && req.query.gender !== 'all') {
         payload.gender = ObjectId(req.query.gender)
@@ -41,17 +42,46 @@ class ProductController {
       if (req.query.size) {
         payload.size = { $in: req.query.size }
       }
+      switch (req.query.sort) {
+        case 'dicount':
+          sort.discount = -1
+          break;
+        case 'prise-reverse':
+          sort.priceOut = -1
+          break;
+        case 'prise':
+          sort.priceOut = 1
+          break;
+        case 'name-reverse':
+          sort.name = -1
+          break;
+        case 'name':
+          sort.name = 1
+          break;
+        default:
+          sort.dateIn = 1
+          break;
+      }
+  
 
       const products = await ProductModel.aggregate([
         { $match: { ...payload } },
-        { $group: { _id: "$articul", name: { $first: "$name" }, dateIn: { $first: "$dateIn"}, products: { $push: "$$ROOT" } } },
-        { $sort: { name: 1 } }
+        { $group: { 
+            _id: "$articul",
+            name: { $first: "$name" },
+            dateIn: { $first: "$dateIn"},
+            priceOut: { $first: "$priceOut" },
+            discount: { $first: "$discount" },
+            products: { $push: "$$ROOT" } 
+          } 
+        },
+        { $sort: { ...sort } }
       ]).skip(offSet).limit(limit)
 
       const totalProducts = await ProductModel.countDocuments({...payload})
 
       const productWithImage = products.map(product => {
-        const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product._id))
+        const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0] === product._id)
         return {
           ...product,
           images: images
@@ -86,10 +116,15 @@ class ProductController {
           { articul:  new RegExp(req.query.search, 'i')}
         ]
       }
+      if (req.query.name) {
+        payload.name = new RegExp(req.query.name, 'i')
+      }
+      if (req.query.provider) {
+        payload.provider = new RegExp(req.query.provider, 'i')
+      }
 
       const products = await ProductModel.find({...payload})
         .populate('category')
-        .populate('pair')
         .populate('seller')
         .sort({'dateIn': -1})
         .skip(offSet)
@@ -100,9 +135,14 @@ class ProductController {
       const productWithImage = products.map((product) => {
         if (product.articul) {
           const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.articul))
+          let pairImages = []
+          if (product.pair) {
+            pairImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.pair))
+          }
           return {
             ...product._doc,
-            images: images
+            images: images,
+            pairImages,
           }
         } else {
           return {
@@ -176,8 +216,20 @@ class ProductController {
       const product = await ProductModel.findById(id)
         .populate('gender')
         .populate('category')
-        .populate('pair')
         .populate('seller')
+
+      if (product.pair) {
+        const payload = {
+          visibility: true,
+          articul: new RegExp(product.pair, 'i')
+        }
+        const pair = await ProductModel.find({...payload})
+          .populate('gender')
+          .populate('category')
+          .populate('seller')
+        const curentPairImages = product.pair ? fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.pair.articul)) : []
+        product.pair = pair ? {...pair._doc, images: curentPairImages} : ''
+      }
 
       const productSizes = await ProductModel.aggregate([
           { $match: { articul: product.articul, visibility: true } },
@@ -229,6 +281,32 @@ class ProductController {
           .populate('pair')
           .populate('seller')
         return res.status(200).json(product)
+      } else {
+        return res.status(500).json({ message: 'Не удалось обновить товар'})
+      }
+    } catch (e) {
+      console.log(e);
+      res.status(500).json({ message: e.message })
+    }
+  }
+
+  async adminUpdateMany(req, res) {
+    try {
+      const ids = req.body.ids
+      const body = {}
+      if (req.body.priceIn) {
+        body.priceIn = req.body.priceIn
+      }
+      if (req.body.discount) {
+        body.discount = req.body.discount
+      }
+
+      const updatedProduct = await ProductModel.updateMany(
+        { _id: ids }, 
+        { $set: body }
+      )
+      if (updatedProduct.nModified) {
+        return res.status(200).json({ updated: updatedProduct.nModified })
       } else {
         return res.status(500).json({ message: 'Не удалось обновить товар'})
       }

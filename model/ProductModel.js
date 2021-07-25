@@ -34,8 +34,7 @@ const productSchema = mongoose.Schema({
     type: String,
   },
   pair: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'ProductModel'
+    type: String,
   },
   priceIn: {
     type: Number

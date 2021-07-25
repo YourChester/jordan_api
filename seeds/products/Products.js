@@ -22,17 +22,17 @@ const formatedData = stringData.map(el => {
     codeBox: arrayData[10].replace(/[\s']/g, ''),
     codeProduct: arrayData[11].replace(/[\s']/g, ''),
     articul: arrayData[12].replace(/[\s']/g, ''),
-    pare: arrayData[13].replace(/[\s']/g, ''),
+    pair: arrayData[13].replace(/[\s']/g, '') == 'NULL' || arrayData[13].replace(/[\s']/g, '') ? arrayData[13].replace(/[\s']/g, '') : '',
     dateIn: arrayData[14].replace(/[\s']/g, '') == 'NULL' ? new Date() : new Date(arrayData[14].replace(/[\s']/g, '').slice(0, 10)),
     dateOut: arrayData[15].replace(/[\s']/g, '') == 'NULL' ? '' : new Date(arrayData[15].replace(/[\s']/g, '').slice(0, 10)),
     createAt: arrayData[16].replace(/[\s']/g, '') == 'NULL' ? new Date() : new Date(arrayData[16].replace(/[\s']/g, '').slice(0, 10)),
     back: Number(arrayData[17]),
-    notPare: Number(arrayData[18]),
+    notPair: Number(arrayData[18]),
     status: arrayData[19].replace(/[\s']/g, ''),
     sellerId: Number(arrayData[20].replace(/[\s']/g, '')),
     soldCard: Number(arrayData[21].replace(/[\s']/g, '')),
     comment: arrayData[22].replace(/[\s']/g, ''),
-    visibility: arrayData[19].replace(/[\s']/g, '') === 'shop',
+    visibility: !!Number(arrayData[23].replace(/[\s']/g, '')),
   }
 })
 

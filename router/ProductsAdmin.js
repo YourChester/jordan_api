@@ -9,6 +9,7 @@ router.post('/', roleMiddleware(['admin', 'manager']), ProductController.adminCr
 router.get('/:id', roleMiddleware(['admin', 'manager']), ProductController.adminShow)
 router.get('/articul/:id', roleMiddleware(['admin', 'manager']), ProductController.adminSearchByArticul)
 router.put('/:id', roleMiddleware(['admin', 'manager']), ProductController.adminUpdate)
+router.post('/many', roleMiddleware(['admin', 'manager']), ProductController.adminUpdateMany)
 router.delete('/:id', roleMiddleware(['admin', 'manager']), ProductController.adminDelete)
 
 module.exports = router

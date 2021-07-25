@@ -1,6 +1,8 @@
 const Router = require('express')
 const router = new Router()
 
+const costsAdmin = require('./CostsAdmin')
+
 const productsUser = require('./ProductsUser')
 const productsAdmin = require('./ProductsAdmin')
 
@@ -29,6 +31,7 @@ router.use('/products', productsUser)
 router.use('/admin/products', productsAdmin)
 router.use('/admin/file', file)
 router.use('/admin/solds', soldsAdmin)
+router.use('/admin/costs', costsAdmin)
 
 
 router.use('/genders', gendersUser)
