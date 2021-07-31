@@ -1,6 +1,9 @@
 const ProductModel = require('../../model/ProductModel')
 const GenderModel = require('../../model/GenderModel')
 const CategoryModel = require('../../model/CategoryModel')
+const SellerModel = require('../../model/SellerModel')
+const DiscountCardModel = require('../../model/DiscountCardModel')
+const SoldModel = require('../../model/SoldModel')
 
 const categoriesHelper = require('../categories/Categories')
 const gendersHelper = [
@@ -69,10 +72,33 @@ function getCurrentGender(id, genders) {
   }
 }
 
+function getDiscountCard(code, discoundCards) {
+  if (code) {
+    return discoundCards.find(el => el.code === code)
+  } else {
+    return null
+  }
+}
+
+function getSellers(ids, sellers) {
+  if (ids.length) {
+    let sellersDate = []
+    ids.forEach(sellerId => {
+      const seller = sellers.find(sellers => sellers.oldId === Number(sellerId))
+      if (seller) {
+        sellersDate.push(seller._id)
+      }
+    })
+    return sellersDate
+  }
+}
+
 async function createProducts() {
   try {
     const genders = await GenderModel.find()
     const categories = await CategoryModel.find()
+    const sellers = await SellerModel.find()
+    const discoundCards = await DiscountCardModel.find()
 
     for (const index in formatedData) {
       const currentCategory = getCurrentCategory(formatedData[index].category, categories)
@@ -100,7 +126,24 @@ async function createProducts() {
         pair: formatedData[index].pair,
         notPair: !!formatedData[index].notPair
       })
-      await newElement.save()
+
+      const products = await newElement.save()
+
+      if (formatedData[index].status === 'sold') {
+        const discountCards = formatedData[index].soldCard ? getDiscountCard(formatedData[index].soldCard, discoundCards) : null
+
+        const newSold = new SoldModel({
+          seller: getSellers(formatedData[index].sellerId, sellers),
+          card: discountCards ? discountCards._id : null,
+          discount: discountCards ? discountCards.discount : 0,
+          date: formatedData[index].dateOut,
+          totalPrice: formatedData[index].priceSold,
+          totalIncome: formatedData[index].priceSold - formatedData[index].priceIn,
+          products: [products._id]
+        })
+        await newSold.save()
+      }
+
       console.log(formatedData[index].id)
     }
     console.log('Заполнение ProductModel завершено');

@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
 
 const staffSchema = mongoose.Schema({
+  oldId: {
+    type: Number
+  },
   name: {
     type: String,
     required: true

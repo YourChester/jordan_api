@@ -49,7 +49,7 @@ class CodebooksController {
         })
       }
 
-      fs.writeFileSync(path.resolve(__dirname, '..', 'menu.json'), JSON.stringify(menu))
+      fs.writeFileSync(path.resolve(__dirname, '..', 'menu.json'), JSON.stringify(menu, null, 2))
     } catch (e) {
       console.log(e);
       res.status(500).json({ message: e.message })

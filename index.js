@@ -62,16 +62,16 @@ mongoDB.connect(
       // mongoDB.connection.db.dropCollection('soldmodels')
       // mongoDB.connection.db.dropCollection('costsmodel')
       
-      await createCategory()
-      await createGenders()
-      await createProducts()
-      await createDiscountCards()
-      await createRoles()
-      await createSeller()
+      // await createCategory()
+      // await createGenders()
+      // await createProducts()
+      // await createDiscountCards()
+      // await createRoles()
+      // await createSeller()
       // await createCosts()
     }
 
-    CodebooksController.buildMenu()
+    // CodebooksController.buildMenu()
 
     // setInterval(()=>{
     //   CodebooksController.buildMenu()

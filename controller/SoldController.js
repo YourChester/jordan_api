@@ -15,14 +15,14 @@ class SoldController {
       }
 
       const solds = await SoldModel.find({...payload})
-        .sort({ date: 1 })
+        .sort({ date: -1 })
         .populate('seller')
         .populate('card')
         .populate('products')
         .skip(offSet)
         .limit(limit)
 
-      const totalElement = await SoldModel.countDocuments()
+      const totalElement = await SoldModel.countDocuments({...payload})
     
       return res.status(200).json({ 
         solds,
@@ -73,7 +73,7 @@ class SoldController {
       if (sold !== null) {
         return res.status(200).json({ sold })
       } else {
-        return res.status(500).json({ message: 'Категория не найден'})
+        return res.status(500).json({ message: 'Продажа не найден'})
       }
     } catch (e) {
       console.log(e);

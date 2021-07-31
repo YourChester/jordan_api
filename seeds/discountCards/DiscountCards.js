@@ -6,7 +6,7 @@ const stringData = fileData.toString().split(',\r\n').map(el => {
   return el.replace(/[\)\(]/g, '')
 })
 
-const formatedData = stringData.map(el => {
+const formatedData = stringData[0].split('\n').map(el => {
   const arrayData = el.split(',')
   return {
     id:  Number(arrayData[0]),

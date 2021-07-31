@@ -22,6 +22,7 @@ async function createSeller() {
       const hashPassword = bcrypt.hashSync(formatedData[el].password, Number(process.env.SALT_HASH))
 
       const newElement = new SellerModel({
+        oldId: formatedData[el].old_id ? formatedData[el].old_id : 0,
         name: formatedData[el].name,
         login: formatedData[el].login,
         password: hashPassword,

@@ -32,7 +32,7 @@ class CategoryController {
       const id = req.params.id
       const category = await CategoryModel.findById(id)
       if (category !== null) {
-        return res.status(200).json(category)
+        return res.status(200).json({category})
       } else {
         return res.status(500).json({ message: 'Категория не найден'})
       }
@@ -48,8 +48,8 @@ class CategoryController {
       const { name, parent } = req.body
       const updatedCategory = await CategoryModel.updateOne({ _id: id }, { $set: { name, parent } })
       if (updatedCategory.nModified) {
-        const category = await CategoryController.findById(id)
-        return res.status(200).json(category)
+        const category = await CategoryModel.findById(id)
+        return res.status(200).json({category})
       } else {
         return res.status(500).json({ message: 'Не удалось обновить категорию'})
       }

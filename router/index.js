@@ -2,6 +2,7 @@ const Router = require('express')
 const router = new Router()
 
 const costsAdmin = require('./CostsAdmin')
+const statisticAdmin = require('./StatisticAdmin')
 
 const productsUser = require('./ProductsUser')
 const productsAdmin = require('./ProductsAdmin')
@@ -32,6 +33,7 @@ router.use('/admin/products', productsAdmin)
 router.use('/admin/file', file)
 router.use('/admin/solds', soldsAdmin)
 router.use('/admin/costs', costsAdmin)
+router.use('/admin/statistic', statisticAdmin)
 
 
 router.use('/genders', gendersUser)
@@ -51,8 +53,5 @@ router.use('/admin/users', usersAdmin)
 
 router.use('/codebooks', codebooks)
 router.use('/filters', filters)
-
-const test = require('./test')
-router.use('/test', test)
 
 module.exports = router

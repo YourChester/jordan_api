@@ -6,8 +6,16 @@ const stringData = fileData.toString().split(',\r\n').map(el => {
   return el.replace(/[\)\(]/g, '')
 })
 
-const formatedData = stringData.map(el => {
-  const arrayData = el.split(',')
+const formatedData = stringData[0].split('\n').map(el => {
+  let arrayData = ''
+  if (/'\d{1,2},\s\d{1,2}'/g.exec(el)) {
+    const buff = /'\d{1,2},\s\d{1,2}'/g.exec(el)
+    const newStr = el.replace(/'\d{1,2},\s\d{1,2}'/g, buff[0].replace(',', ';'))
+    arrayData = newStr.split(',')
+  } else {
+    arrayData = el.split(',')
+  }
+
   return {
     id:  Number(arrayData[0]),
     category: Number(arrayData[1].replace(/[\s']/g, '')),
@@ -29,10 +37,10 @@ const formatedData = stringData.map(el => {
     back: Number(arrayData[17]),
     notPair: Number(arrayData[18]),
     status: arrayData[19].replace(/[\s']/g, ''),
-    sellerId: Number(arrayData[20].replace(/[\s']/g, '')),
+    sellerId: Number(arrayData[20].replace(/[\s']/g, '').split(';')[0]) === 0 ? [] : arrayData[20].replace(/[\s']/g, '').split(';'),
     soldCard: Number(arrayData[21].replace(/[\s']/g, '')),
     comment: arrayData[22].replace(/[\s']/g, ''),
-    visibility: !!Number(arrayData[23].replace(/[\s']/g, '')),
+    visibility: arrayData[19].replace(/[\s']/g, '') === 'shop',
   }
 })
 
