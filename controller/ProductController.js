@@ -266,7 +266,6 @@ class ProductController {
 
   async adminUpdate(req, res) {
     try {
-      let fileChange = false
       const id = req.params.id
       const updateProduct = req.body
 
@@ -274,15 +273,11 @@ class ProductController {
         { _id: id }, 
         { $set: updateProduct }
       )
-      if (updatedProduct.nModified || fileChange) {
+      if (updatedProduct.nModified) {
         const product = await ProductModel.findById(id)
-          .populate('gender')
-          .populate('category')
-          .populate('pair')
-          .populate('seller')
-        return res.status(200).json(product)
+        return res.status(200).json({ product })
       } else {
-        return res.status(500).json({ message: 'Не удалось обновить товар'})
+        return res.status(500).json({ message: 'Товар не был изменен'})
       }
     } catch (e) {
       console.log(e);
