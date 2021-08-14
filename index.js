@@ -71,11 +71,11 @@ mongoDB.connect(
       // await createCosts()
     }
 
-    // CodebooksController.buildMenu()
+    CodebooksController.buildMenu()
 
-    // setInterval(()=>{
-    //   CodebooksController.buildMenu()
-    // }, 1000 * 60 * 24)
+    setInterval(()=>{
+      CodebooksController.buildMenu()
+    }, 1000 * 60 * 24)
 
     console.log('----------');
     console.log('\x1b[32m');
