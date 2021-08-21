@@ -122,6 +122,12 @@ class ProductController {
       if (req.query.provider) {
         payload.provider = new RegExp(req.query.provider, 'i')
       }
+      if (req.query.brand) {
+        payload.brand = new RegExp(req.query.brand, 'i')
+      }
+      if (req.query.category) {
+        payload.category = { $in: [req.query.category] }
+      }
 
       const products = await ProductModel.find({...payload})
         .populate('category')

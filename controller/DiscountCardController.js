@@ -1,4 +1,5 @@
 const DiscountCardModel = require('../model/DiscountCardModel')
+const SoldModel = require('../model/SoldModel')
 
 class DiscountCardController {
   async adminIndex(req, res) {
@@ -73,8 +74,12 @@ class DiscountCardController {
     try {
       const id = req.params.id
       const discountCard = await DiscountCardModel.findById(id)
+      const solds = await SoldModel.find({ card: id }).populate('products')
+      let products = []
+      solds.forEach(el => products = [ ...el.products, ...products ])
+
       if (discountCard !== null) {
-        return res.status(200).json({ discountCard })
+        return res.status(200).json({ ...discountCard._doc, history: products })
       } else {
         return res.status(500).json({ message: 'Скидочная карта не найден'})
       }

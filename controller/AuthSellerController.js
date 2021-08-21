@@ -9,7 +9,7 @@ generateUserToken = ( id, role) => {
     id,
     role,
   }
-  return jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: `${1000 * 60 * 8}`})
+  return jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: '24h'})
 }
 
 class AuthController {

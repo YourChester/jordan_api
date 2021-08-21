@@ -64,11 +64,11 @@ mongoDB.connect(
       
       // await createCategory()
       // await createGenders()
-      // await createProducts()
       // await createDiscountCards()
       // await createRoles()
-      // await createSeller()
       // await createCosts()
+      // await createSeller()
+      // await createProducts()
     }
 
     CodebooksController.buildMenu()
