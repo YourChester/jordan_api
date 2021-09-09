@@ -18,28 +18,28 @@ const formatedData = [
     name: 'артем',
     login: 'артем',
     role: 'Менеджер',
-    password: 'password'
+    password: '19761001'
   },
   {
     old_id: 9,
     name: 'Никита',
     login: 'Никита',
     role: 'Менеджер',
-    password: 'password'
+    password: '19761001'
   },
   {
     old_id: 10,
     name: 'Сергей',
     login: 'Сергей',
     role: 'Менеджер',
-    password: 'password'
+    password: '19761001'
   },
   {
     old_id: 11,
     name: 'Святкин',
     login: 'Святкин',
     role: 'Менеджер',
-    password: 'password'
+    password: '19761001'
   },
   {
     name: 'Артур',

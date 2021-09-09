@@ -1,97 +1,97 @@
 [
   {
-    "_id": "611e3591ddd7ce89dcefc512",
+    "_id": "613912c15a35b8488b80b4a9",
     "name": "Мужчины",
     "categories": [
       {
-        "_id": "611e3582ddd7ce89dcefc4b4",
+        "_id": "613912aa5a35b8488b80b44b",
         "name": "Обувь",
         "childs": [
           {
-            "_id": "611e3583ddd7ce89dcefc4b7",
+            "_id": "613912ac5a35b8488b80b44e",
             "name": "Кроссовки",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3583ddd7ce89dcefc4b8",
+            "_id": "613912ac5a35b8488b80b44f",
             "name": "Сандали",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3584ddd7ce89dcefc4b9",
+            "_id": "613912ac5a35b8488b80b450",
             "name": "Шлепанцы",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3584ddd7ce89dcefc4ba",
+            "_id": "613912ac5a35b8488b80b451",
             "name": "Вьетнамки",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3584ddd7ce89dcefc4bb",
+            "_id": "613912ac5a35b8488b80b452",
             "name": "Бутсы",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3584ddd7ce89dcefc4bc",
+            "_id": "613912ac5a35b8488b80b453",
             "name": "Сороконожки",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3589ddd7ce89dcefc4df",
+            "_id": "613912b95a35b8488b80b476",
             "name": "Футзал",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358eddd7ce89dcefc4fb",
+            "_id": "613912bd5a35b8488b80b492",
             "name": "боксерки",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358fddd7ce89dcefc503",
+            "_id": "613912bf5a35b8488b80b49a",
             "name": "Ботинки",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
@@ -100,334 +100,334 @@
         ]
       },
       {
-        "_id": "611e3583ddd7ce89dcefc4b5",
+        "_id": "613912ab5a35b8488b80b44c",
         "name": "Одежда",
         "childs": [
           {
-            "_id": "611e3584ddd7ce89dcefc4bd",
+            "_id": "613912ad5a35b8488b80b454",
             "name": "Костюм",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3584ddd7ce89dcefc4be",
+            "_id": "613912ad5a35b8488b80b455",
             "name": "Брюки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4bf",
+            "_id": "613912ad5a35b8488b80b456",
             "name": "Футболка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c0",
+            "_id": "613912ad5a35b8488b80b457",
             "name": "Шорты",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c1",
+            "_id": "613912ad5a35b8488b80b458",
             "name": "Ветровка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c2",
+            "_id": "613912ad5a35b8488b80b459",
             "name": "Куртка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c3",
+            "_id": "613912ad5a35b8488b80b45a",
             "name": "Пайта",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c4",
+            "_id": "613912ae5a35b8488b80b45b",
             "name": "Кепка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c5",
+            "_id": "613912ae5a35b8488b80b45c",
             "name": "Майка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4c6",
+            "_id": "613912ae5a35b8488b80b45d",
             "name": "Носки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4c7",
+            "_id": "613912ae5a35b8488b80b45e",
             "name": "Топ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4c8",
+            "_id": "613912ae5a35b8488b80b45f",
             "name": "Перчатки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4c9",
+            "_id": "613912ae5a35b8488b80b460",
             "name": "Жилетка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4ca",
+            "_id": "613912ae5a35b8488b80b461",
             "name": "Гетры",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4cb",
+            "_id": "613912af5a35b8488b80b462",
             "name": "Компр брюки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4cc",
+            "_id": "613912af5a35b8488b80b463",
             "name": "Компр лосины",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3587ddd7ce89dcefc4cd",
+            "_id": "613912af5a35b8488b80b464",
             "name": "Компр футболка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3587ddd7ce89dcefc4ce",
+            "_id": "613912af5a35b8488b80b465",
             "name": "Компр шорты",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3587ddd7ce89dcefc4d0",
+            "_id": "613912af5a35b8488b80b467",
             "name": "Тайсы",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3587ddd7ce89dcefc4d2",
+            "_id": "613912b05a35b8488b80b469",
             "name": "Шапка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d4",
+            "_id": "613912b05a35b8488b80b46b",
             "name": "Бомбер",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d5",
+            "_id": "613912b05a35b8488b80b46c",
             "name": "Лонг слив",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d6",
+            "_id": "613912b05a35b8488b80b46d",
             "name": "Термо-брюки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d7",
+            "_id": "613912b05a35b8488b80b46e",
             "name": "Термо-пайта",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d8",
+            "_id": "613912b85a35b8488b80b46f",
             "name": "Пуховик",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358cddd7ce89dcefc4ee",
+            "_id": "613912bb5a35b8488b80b485",
             "name": "Капри",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358cddd7ce89dcefc4f3",
+            "_id": "613912bc5a35b8488b80b48a",
             "name": "шорты плавательные ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358eddd7ce89dcefc4fe",
+            "_id": "613912be5a35b8488b80b495",
             "name": "панама",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358fddd7ce89dcefc502",
+            "_id": "613912be5a35b8488b80b499",
             "name": "Поло",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358fddd7ce89dcefc504",
+            "_id": "613912bf5a35b8488b80b49b",
             "name": "Худи",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358fddd7ce89dcefc505",
+            "_id": "613912bf5a35b8488b80b49c",
             "name": "Свитшот",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc50a",
+            "_id": "613912c05a35b8488b80b4a1",
             "name": "Майка с защитой ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc50b",
+            "_id": "613912c05a35b8488b80b4a2",
             "name": "Шорты с защитой",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
@@ -436,264 +436,254 @@
         ]
       },
       {
-        "_id": "611e3583ddd7ce89dcefc4b6",
+        "_id": "613912ac5a35b8488b80b44d",
         "name": "Аксессуары",
         "childs": [
           {
-            "_id": "611e3589ddd7ce89dcefc4db",
+            "_id": "613912b95a35b8488b80b472",
             "name": "перчатки для фитнеса",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3589ddd7ce89dcefc4dc",
+            "_id": "613912b95a35b8488b80b473",
             "name": "Мяч баскетбол",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3589ddd7ce89dcefc4dd",
-            "name": "Мяч волейбол",
-            "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
-              "name": "Аксессуары",
-              "__v": 0
-            },
-            "__v": 0
-          },
-          {
-            "_id": "611e3589ddd7ce89dcefc4de",
+            "_id": "613912b95a35b8488b80b475",
             "name": "Мяч футбол",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e0",
+            "_id": "613912b95a35b8488b80b477",
             "name": "Напульсник",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e2",
+            "_id": "613912ba5a35b8488b80b479",
             "name": "Насос",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e4",
+            "_id": "613912ba5a35b8488b80b47b",
             "name": "Повязка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e5",
+            "_id": "613912ba5a35b8488b80b47c",
             "name": "Рюкзак",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e6",
+            "_id": "613912ba5a35b8488b80b47d",
             "name": "Сумка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358bddd7ce89dcefc4e8",
+            "_id": "613912bb5a35b8488b80b47f",
             "name": "Щитки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358cddd7ce89dcefc4ed",
+            "_id": "613912bb5a35b8488b80b484",
             "name": "перчатки вратаря",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358cddd7ce89dcefc4f0",
+            "_id": "613912bc5a35b8488b80b487",
             "name": "налокотник",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358cddd7ce89dcefc4f2",
+            "_id": "613912bc5a35b8488b80b489",
             "name": "Бутылка для воды",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f5",
+            "_id": "613912bc5a35b8488b80b48c",
             "name": "ластик для обуви",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f7",
+            "_id": "613912bd5a35b8488b80b48e",
             "name": "Шапочка для плавания ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f8",
+            "_id": "613912bd5a35b8488b80b48f",
             "name": "Футбольные перчатки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f9",
+            "_id": "613912bd5a35b8488b80b490",
             "name": "Бафф",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358eddd7ce89dcefc4fa",
+            "_id": "613912bd5a35b8488b80b491",
             "name": "трусы боксеры",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358eddd7ce89dcefc4fc",
+            "_id": "613912be5a35b8488b80b493",
             "name": "перчатки для бокса",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358eddd7ce89dcefc4ff",
+            "_id": "613912be5a35b8488b80b496",
             "name": "полотенце ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358fddd7ce89dcefc506",
+            "_id": "613912bf5a35b8488b80b49d",
             "name": "капа",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc507",
+            "_id": "613912bf5a35b8488b80b49e",
             "name": "Наколенник ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc508",
+            "_id": "613912bf5a35b8488b80b49f",
             "name": "Защита  голеностопа ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc50d",
+            "_id": "613912c05a35b8488b80b4a4",
             "name": "Подарочный пакет",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3591ddd7ce89dcefc50f",
+            "_id": "613912c05a35b8488b80b4a6",
             "name": "Сумка для обуви",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3591ddd7ce89dcefc510",
+            "_id": "613912c05a35b8488b80b4a7",
             "name": "Подарочный сертификат ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
@@ -704,58 +694,48 @@
     ]
   },
   {
-    "_id": "611e3591ddd7ce89dcefc513",
+    "_id": "613912c15a35b8488b80b4aa",
     "name": "Женщины",
     "categories": [
       {
-        "_id": "611e3582ddd7ce89dcefc4b4",
+        "_id": "613912aa5a35b8488b80b44b",
         "name": "Обувь",
         "childs": [
           {
-            "_id": "611e3583ddd7ce89dcefc4b7",
+            "_id": "613912ac5a35b8488b80b44e",
             "name": "Кроссовки",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3583ddd7ce89dcefc4b8",
-            "name": "Сандали",
-            "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
-              "name": "Обувь",
-              "__v": 0
-            },
-            "__v": 0
-          },
-          {
-            "_id": "611e3584ddd7ce89dcefc4b9",
+            "_id": "613912ac5a35b8488b80b450",
             "name": "Шлепанцы",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3584ddd7ce89dcefc4ba",
+            "_id": "613912ac5a35b8488b80b451",
             "name": "Вьетнамки",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358fddd7ce89dcefc503",
+            "_id": "613912bf5a35b8488b80b49a",
             "name": "Ботинки",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
@@ -764,304 +744,304 @@
         ]
       },
       {
-        "_id": "611e3583ddd7ce89dcefc4b5",
+        "_id": "613912ab5a35b8488b80b44c",
         "name": "Одежда",
         "childs": [
           {
-            "_id": "611e3584ddd7ce89dcefc4bd",
+            "_id": "613912ad5a35b8488b80b454",
             "name": "Костюм",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3584ddd7ce89dcefc4be",
+            "_id": "613912ad5a35b8488b80b455",
             "name": "Брюки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4bf",
+            "_id": "613912ad5a35b8488b80b456",
             "name": "Футболка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c0",
+            "_id": "613912ad5a35b8488b80b457",
             "name": "Шорты",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c1",
+            "_id": "613912ad5a35b8488b80b458",
             "name": "Ветровка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c2",
+            "_id": "613912ad5a35b8488b80b459",
             "name": "Куртка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c3",
+            "_id": "613912ad5a35b8488b80b45a",
             "name": "Пайта",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c4",
+            "_id": "613912ae5a35b8488b80b45b",
             "name": "Кепка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c5",
+            "_id": "613912ae5a35b8488b80b45c",
             "name": "Майка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4c6",
+            "_id": "613912ae5a35b8488b80b45d",
             "name": "Носки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4c7",
+            "_id": "613912ae5a35b8488b80b45e",
             "name": "Топ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4c8",
+            "_id": "613912ae5a35b8488b80b45f",
             "name": "Перчатки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4c9",
+            "_id": "613912ae5a35b8488b80b460",
             "name": "Жилетка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4ca",
+            "_id": "613912ae5a35b8488b80b461",
             "name": "Гетры",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3587ddd7ce89dcefc4ce",
+            "_id": "613912af5a35b8488b80b465",
             "name": "Компр шорты",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3587ddd7ce89dcefc4cf",
+            "_id": "613912af5a35b8488b80b466",
             "name": "Лосины",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3587ddd7ce89dcefc4d2",
+            "_id": "613912b05a35b8488b80b469",
             "name": "Шапка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d3",
+            "_id": "613912b05a35b8488b80b46a",
             "name": "Юбка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d4",
+            "_id": "613912b05a35b8488b80b46b",
             "name": "Бомбер",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d5",
+            "_id": "613912b05a35b8488b80b46c",
             "name": "Лонг слив",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d6",
+            "_id": "613912b05a35b8488b80b46d",
             "name": "Термо-брюки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d7",
+            "_id": "613912b05a35b8488b80b46e",
             "name": "Термо-пайта",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d8",
+            "_id": "613912b85a35b8488b80b46f",
             "name": "Пуховик",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358cddd7ce89dcefc4ee",
+            "_id": "613912bb5a35b8488b80b485",
             "name": "Капри",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f4",
+            "_id": "613912bc5a35b8488b80b48b",
             "name": "платье",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358eddd7ce89dcefc4fe",
+            "_id": "613912be5a35b8488b80b495",
             "name": "панама",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358fddd7ce89dcefc505",
+            "_id": "613912bf5a35b8488b80b49c",
             "name": "Свитшот",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc509",
+            "_id": "613912bf5a35b8488b80b4a0",
             "name": "комбинезон",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3591ddd7ce89dcefc50e",
+            "_id": "613912c05a35b8488b80b4a5",
             "name": "Боди",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3591ddd7ce89dcefc511",
+            "_id": "613912c15a35b8488b80b4a8",
             "name": "велосипедки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
@@ -1070,244 +1050,214 @@
         ]
       },
       {
-        "_id": "611e3583ddd7ce89dcefc4b6",
+        "_id": "613912ac5a35b8488b80b44d",
         "name": "Аксессуары",
         "childs": [
           {
-            "_id": "611e3589ddd7ce89dcefc4da",
-            "name": "Коврик",
-            "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
-              "name": "Аксессуары",
-              "__v": 0
-            },
-            "__v": 0
-          },
-          {
-            "_id": "611e3589ddd7ce89dcefc4dc",
+            "_id": "613912b95a35b8488b80b473",
             "name": "Мяч баскетбол",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3589ddd7ce89dcefc4dd",
-            "name": "Мяч волейбол",
-            "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
-              "name": "Аксессуары",
-              "__v": 0
-            },
-            "__v": 0
-          },
-          {
-            "_id": "611e3589ddd7ce89dcefc4de",
+            "_id": "613912b95a35b8488b80b475",
             "name": "Мяч футбол",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e0",
+            "_id": "613912b95a35b8488b80b477",
             "name": "Напульсник",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e2",
+            "_id": "613912ba5a35b8488b80b479",
             "name": "Насос",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e4",
+            "_id": "613912ba5a35b8488b80b47b",
             "name": "Повязка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e5",
+            "_id": "613912ba5a35b8488b80b47c",
             "name": "Рюкзак",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e6",
+            "_id": "613912ba5a35b8488b80b47d",
             "name": "Сумка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358cddd7ce89dcefc4ed",
-            "name": "перчатки вратаря",
-            "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
-              "name": "Аксессуары",
-              "__v": 0
-            },
-            "__v": 0
-          },
-          {
-            "_id": "611e358cddd7ce89dcefc4f0",
+            "_id": "613912bc5a35b8488b80b487",
             "name": "налокотник",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358cddd7ce89dcefc4f2",
+            "_id": "613912bc5a35b8488b80b489",
             "name": "Бутылка для воды",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f5",
+            "_id": "613912bc5a35b8488b80b48c",
             "name": "ластик для обуви",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f7",
+            "_id": "613912bd5a35b8488b80b48e",
             "name": "Шапочка для плавания ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f8",
+            "_id": "613912bd5a35b8488b80b48f",
             "name": "Футбольные перчатки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f9",
+            "_id": "613912bd5a35b8488b80b490",
             "name": "Бафф",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358eddd7ce89dcefc4fd",
+            "_id": "613912be5a35b8488b80b494",
             "name": "купальник",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358eddd7ce89dcefc4ff",
+            "_id": "613912be5a35b8488b80b496",
             "name": "полотенце ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358fddd7ce89dcefc506",
+            "_id": "613912bf5a35b8488b80b49d",
             "name": "капа",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc507",
+            "_id": "613912bf5a35b8488b80b49e",
             "name": "Наколенник ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc508",
+            "_id": "613912bf5a35b8488b80b49f",
             "name": "Защита  голеностопа ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc50d",
+            "_id": "613912c05a35b8488b80b4a4",
             "name": "Подарочный пакет",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3591ddd7ce89dcefc50f",
+            "_id": "613912c05a35b8488b80b4a6",
             "name": "Сумка для обуви",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3591ddd7ce89dcefc510",
+            "_id": "613912c05a35b8488b80b4a7",
             "name": "Подарочный сертификат ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
@@ -1318,78 +1268,78 @@
     ]
   },
   {
-    "_id": "611e3592ddd7ce89dcefc514",
+    "_id": "613912c15a35b8488b80b4ab",
     "name": "Дети",
     "categories": [
       {
-        "_id": "611e3582ddd7ce89dcefc4b4",
+        "_id": "613912aa5a35b8488b80b44b",
         "name": "Обувь",
         "childs": [
           {
-            "_id": "611e3583ddd7ce89dcefc4b7",
+            "_id": "613912ac5a35b8488b80b44e",
             "name": "Кроссовки",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3583ddd7ce89dcefc4b8",
+            "_id": "613912ac5a35b8488b80b44f",
             "name": "Сандали",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3584ddd7ce89dcefc4b9",
+            "_id": "613912ac5a35b8488b80b450",
             "name": "Шлепанцы",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3584ddd7ce89dcefc4bb",
+            "_id": "613912ac5a35b8488b80b452",
             "name": "Бутсы",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3584ddd7ce89dcefc4bc",
+            "_id": "613912ac5a35b8488b80b453",
             "name": "Сороконожки",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3589ddd7ce89dcefc4df",
+            "_id": "613912b95a35b8488b80b476",
             "name": "Футзал",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358fddd7ce89dcefc503",
+            "_id": "613912bf5a35b8488b80b49a",
             "name": "Ботинки",
             "parent": {
-              "_id": "611e3582ddd7ce89dcefc4b4",
+              "_id": "613912aa5a35b8488b80b44b",
               "name": "Обувь",
               "__v": 0
             },
@@ -1398,184 +1348,174 @@
         ]
       },
       {
-        "_id": "611e3583ddd7ce89dcefc4b5",
+        "_id": "613912ab5a35b8488b80b44c",
         "name": "Одежда",
         "childs": [
           {
-            "_id": "611e3584ddd7ce89dcefc4bd",
+            "_id": "613912ad5a35b8488b80b454",
             "name": "Костюм",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3584ddd7ce89dcefc4be",
+            "_id": "613912ad5a35b8488b80b455",
             "name": "Брюки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4bf",
+            "_id": "613912ad5a35b8488b80b456",
             "name": "Футболка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c1",
+            "_id": "613912ad5a35b8488b80b458",
             "name": "Ветровка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c2",
-            "name": "Куртка",
-            "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
-              "name": "Одежда",
-              "__v": 0
-            },
-            "__v": 0
-          },
-          {
-            "_id": "611e3585ddd7ce89dcefc4c3",
+            "_id": "613912ad5a35b8488b80b45a",
             "name": "Пайта",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3585ddd7ce89dcefc4c4",
+            "_id": "613912ae5a35b8488b80b45b",
             "name": "Кепка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4c6",
+            "_id": "613912ae5a35b8488b80b45d",
             "name": "Носки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4c7",
+            "_id": "613912ae5a35b8488b80b45e",
             "name": "Топ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4c8",
+            "_id": "613912ae5a35b8488b80b45f",
             "name": "Перчатки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3586ddd7ce89dcefc4ca",
+            "_id": "613912ae5a35b8488b80b461",
             "name": "Гетры",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3587ddd7ce89dcefc4cf",
+            "_id": "613912af5a35b8488b80b466",
             "name": "Лосины",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3587ddd7ce89dcefc4d2",
+            "_id": "613912b05a35b8488b80b469",
             "name": "Шапка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d4",
+            "_id": "613912b05a35b8488b80b46b",
             "name": "Бомбер",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d5",
+            "_id": "613912b05a35b8488b80b46c",
             "name": "Лонг слив",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3588ddd7ce89dcefc4d8",
+            "_id": "613912b85a35b8488b80b46f",
             "name": "Пуховик",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f4",
+            "_id": "613912bc5a35b8488b80b48b",
             "name": "платье",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358eddd7ce89dcefc4fe",
+            "_id": "613912be5a35b8488b80b495",
             "name": "панама",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b5",
+              "_id": "613912ab5a35b8488b80b44c",
               "name": "Одежда",
               "__v": 0
             },
@@ -1584,244 +1524,214 @@
         ]
       },
       {
-        "_id": "611e3583ddd7ce89dcefc4b6",
+        "_id": "613912ac5a35b8488b80b44d",
         "name": "Аксессуары",
         "childs": [
           {
-            "_id": "611e3589ddd7ce89dcefc4da",
-            "name": "Коврик",
-            "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
-              "name": "Аксессуары",
-              "__v": 0
-            },
-            "__v": 0
-          },
-          {
-            "_id": "611e3589ddd7ce89dcefc4dc",
+            "_id": "613912b95a35b8488b80b473",
             "name": "Мяч баскетбол",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3589ddd7ce89dcefc4dd",
-            "name": "Мяч волейбол",
-            "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
-              "name": "Аксессуары",
-              "__v": 0
-            },
-            "__v": 0
-          },
-          {
-            "_id": "611e3589ddd7ce89dcefc4de",
+            "_id": "613912b95a35b8488b80b475",
             "name": "Мяч футбол",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e0",
+            "_id": "613912b95a35b8488b80b477",
             "name": "Напульсник",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e2",
+            "_id": "613912ba5a35b8488b80b479",
             "name": "Насос",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e4",
+            "_id": "613912ba5a35b8488b80b47b",
             "name": "Повязка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e5",
+            "_id": "613912ba5a35b8488b80b47c",
             "name": "Рюкзак",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358addd7ce89dcefc4e6",
+            "_id": "613912ba5a35b8488b80b47d",
             "name": "Сумка",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358bddd7ce89dcefc4e8",
+            "_id": "613912bb5a35b8488b80b47f",
             "name": "Щитки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358cddd7ce89dcefc4ed",
-            "name": "перчатки вратаря",
-            "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
-              "name": "Аксессуары",
-              "__v": 0
-            },
-            "__v": 0
-          },
-          {
-            "_id": "611e358cddd7ce89dcefc4f0",
+            "_id": "613912bc5a35b8488b80b487",
             "name": "налокотник",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358cddd7ce89dcefc4f2",
+            "_id": "613912bc5a35b8488b80b489",
             "name": "Бутылка для воды",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f5",
+            "_id": "613912bc5a35b8488b80b48c",
             "name": "ластик для обуви",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f7",
+            "_id": "613912bd5a35b8488b80b48e",
             "name": "Шапочка для плавания ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f8",
+            "_id": "613912bd5a35b8488b80b48f",
             "name": "Футбольные перчатки",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358dddd7ce89dcefc4f9",
+            "_id": "613912bd5a35b8488b80b490",
             "name": "Бафф",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358eddd7ce89dcefc4ff",
+            "_id": "613912be5a35b8488b80b496",
             "name": "полотенце ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e358fddd7ce89dcefc506",
+            "_id": "613912bf5a35b8488b80b49d",
             "name": "капа",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc507",
+            "_id": "613912bf5a35b8488b80b49e",
             "name": "Наколенник ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc508",
+            "_id": "613912bf5a35b8488b80b49f",
             "name": "Защита  голеностопа ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3590ddd7ce89dcefc50d",
+            "_id": "613912c05a35b8488b80b4a4",
             "name": "Подарочный пакет",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3591ddd7ce89dcefc50f",
+            "_id": "613912c05a35b8488b80b4a6",
             "name": "Сумка для обуви",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },
             "__v": 0
           },
           {
-            "_id": "611e3591ddd7ce89dcefc510",
+            "_id": "613912c05a35b8488b80b4a7",
             "name": "Подарочный сертификат ",
             "parent": {
-              "_id": "611e3583ddd7ce89dcefc4b6",
+              "_id": "613912ac5a35b8488b80b44d",
               "name": "Аксессуары",
               "__v": 0
             },

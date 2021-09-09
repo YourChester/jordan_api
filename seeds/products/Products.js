@@ -37,10 +37,10 @@ const formatedData = stringData[0].split('\n').map(el => {
     back: Number(arrayData[17]),
     notPair: Number(arrayData[18]),
     status: arrayData[19].replace(/[\s']/g, ''),
-    sellerId: Number(arrayData[20].replace(/[\s']/g, '').split(';')[0]) === 0 ? [] : arrayData[20].replace(/[\s']/g, '').split(';'),
-    soldCard: Number(arrayData[21].replace(/[\s']/g, '')),
+    sellerId: Number(arrayData[20].replace(/[\s']/g, '').split(';')[0]) === 0 || arrayData[20].replace(/[\s']/g, '') === 'NULL' ? [] : arrayData[20].replace(/[\s']/g, '').split(';'),
+    soldCard: arrayData[21].replace(/[\s']/g, '') === 'NULL' || arrayData[21].replace(/[\s']/g, '') === '' ? null : Number(arrayData[21].replace(/[\s']/g, '')),
     comment: arrayData[22].replace(/[\s']/g, ''),
-    visibility: arrayData[19].replace(/[\s']/g, '') === 'shop',
+    visibility: arrayData[19].replace(/[\s']/g, '') === 'shop' && Number(arrayData[24].replace(/[\s']/g, '')) === 0 ? true : false,
   }
 })
 

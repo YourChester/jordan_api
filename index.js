@@ -62,20 +62,20 @@ mongoDB.connect(
       // mongoDB.connection.db.dropCollection('soldmodels')
       // mongoDB.connection.db.dropCollection('costsmodel')
       
-      // await createCategory()
-      // await createGenders()
-      // await createDiscountCards()
-      // await createRoles()
-      // await createCosts()
-      // await createSeller()
-      // await createProducts()
+      await createCategory()
+      await createGenders()
+      await createDiscountCards()
+      await createRoles()
+      await createCosts()
+      await createSeller()
+      await createProducts()
     }
 
-    CodebooksController.buildMenu()
+    // CodebooksController.buildMenu()
 
-    setInterval(()=>{
-      CodebooksController.buildMenu()
-    }, 1000 * 60 * 24)
+    // setInterval(()=>{
+    //   CodebooksController.buildMenu()
+    // }, 1000 * 60 * 24)
 
     console.log('----------');
     console.log('\x1b[32m');
