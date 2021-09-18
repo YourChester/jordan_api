@@ -1,3 +1,7 @@
+const path = require('path')
+const fs = require('fs')
+const { ObjectId } = require('mongodb')
+
 const SoldModel = require('../model/SoldModel')
 const ProductModel = require('../model/ProductModel')
 
@@ -11,21 +15,98 @@ class SoldController {
       const payload = {}
       
       if (req.query.seller) {
-        payload.seller = { $in: [req.query.seller] }
+        payload.seller = { $in: [ObjectId(req.query.seller)] }
+      }
+      if (req.query.search) {
+        payload.$or = [
+          { 'products_info.codeProduct':  new RegExp(req.query.search, 'i')},
+          { 'products_info.codeBox':  new RegExp(req.query.search, 'i')},
+          { 'products_info.articul':  new RegExp(req.query.search, 'i')},
+          { 'products_info.name':  new RegExp(req.query.search, 'i')}
+        ]
       }
 
-      const solds = await SoldModel.find({...payload})
-        .sort({ date: -1 })
-        .populate('seller')
-        .populate('card')
-        .populate('products')
-        .skip(offSet)
-        .limit(limit)
+      const solds = await SoldModel.aggregate([
+          {
+            $lookup:
+              {
+                from: "sellermodels",
+                localField: "seller",
+                foreignField: "_id",
+                as: "seller_info"
+              }
+          },
+          {
+            $lookup:
+              {
+                from: "discountcardmodels",
+                localField: "card",
+                foreignField: "_id",
+                as: "card_info"
+              }
+          },
+          {
+            $lookup:
+              {
+                from: "productmodels",
+                localField: "products",
+                foreignField: "_id",
+                as: "products_info"
+              }
+          },
+          
+          { $match: { ...payload } },
+          { $sort: { date: -1 } }
+        ]).skip(offSet).limit(limit)
+        
+      const groupSolds = []
+      solds.forEach(sold => {
+        const day = new Date(new Date(sold.date).toLocaleString('en-US', { timeZone: 'Europe/Moscow' })).getDate()
+        const month = new Date(new Date(sold.date).toLocaleString('en-US', { timeZone: 'Europe/Moscow' })).getMonth() + 1
+        const year = new Date(new Date(sold.date).toLocaleString('en-US', { timeZone: 'Europe/Moscow' })).getFullYear()
+        const id = `${day > 10 ? day : '0' + day}.${month > 10 ? month : '0' + month}.${year}`
+        const productWithImage = sold.products_info.map((product) => {
+          if (product.articul) {
+            const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.articul))
+            let pairImages = []
+            if (product.pair) {
+              pairImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.pair))
+            }
+            return {
+              ...product,
+              images: images,
+              pairImages,
+            }
+          } else {
+            return {
+              ...product._doc,
+              images: []
+            }
+          }
+        })
+        const index = groupSolds.findIndex(el => el._id === id)
+        if(index > -1) {
+          groupSolds[index].solds.push({
+            ...sold,
+            products_info: productWithImage
+          })
+          groupSolds[index].totalPrice += Number(sold.totalPrice)
+        } else {
+          groupSolds.push({
+            _id: id,
+            totalPrice: Number(sold.totalPrice),
+            solds: [{
+              ...sold,
+              products_info: productWithImage
+            }]
+          })
+        }
+      })
 
       const totalElement = await SoldModel.countDocuments({...payload})
     
       return res.status(200).json({ 
-        solds,
+        solds: groupSolds,
         totalCount: totalElement,
         totalPages: Math.ceil(totalElement / limit)
       })
@@ -66,12 +147,33 @@ class SoldController {
   async adminShow(req, res) {
     try {
       const id = req.params.id
-      const sold = await SoldModel.findById(id)
-        .populate('card')
-        .populate('products')
-        
+      const sold = await SoldModel.findById(id).populate('card').populate('products')
+
+      const productWithImage = sold.products.map((product) => {
+        if (product.articul) {
+          const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.articul))
+          let pairImages = []
+          if (product.pair) {
+            pairImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.pair))
+          }
+          return {
+            ...product._doc,
+            images: images,
+            pairImages,
+          }
+        } else {
+          return {
+            ...product._doc,
+            images: []
+          }
+        }
+      })
+
       if (sold !== null) {
-        return res.status(200).json({ sold })
+        return res.status(200).json({ sold: {
+          ...sold._doc,
+          products: productWithImage
+        }})
       } else {
         return res.status(500).json({ message: 'Продажа не найден'})
       }

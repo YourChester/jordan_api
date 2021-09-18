@@ -23,7 +23,7 @@ class DiscountCardController {
       }
 
       const discountCards = await DiscountCardModel.find({...payload})
-        .sort({ 'code': -1 })
+        .sort({ 'createAt': -1 })
         .skip(offSet)
         .limit(limit)
 
@@ -79,7 +79,7 @@ class DiscountCardController {
       solds.forEach(el => products = [ ...el.products, ...products ])
 
       if (discountCard !== null) {
-        return res.status(200).json({ ...discountCard._doc, history: products })
+        return res.status(200).json({ discountCard: {...discountCard._doc, history: products} })
       } else {
         return res.status(500).json({ message: 'Скидочная карта не найден'})
       }

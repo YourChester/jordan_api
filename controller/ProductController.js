@@ -42,6 +42,9 @@ class ProductController {
       if (req.query.size) {
         payload.size = { $in: req.query.size }
       }
+      if (req.query.brand) {
+        payload.brand = { $in: req.query.brand }
+      }
       switch (req.query.sort) {
         case 'dicount':
           sort.discount = -1
@@ -59,7 +62,7 @@ class ProductController {
           sort.name = 1
           break;
         default:
-          sort.dateIn = 1
+          sort.dateIn = -1
           break;
       }
   
@@ -78,7 +81,19 @@ class ProductController {
         { $sort: { ...sort } }
       ]).skip(offSet).limit(limit)
 
-      const totalProducts = await ProductModel.countDocuments({...payload})
+      const totalProducts = await ProductModel.aggregate([
+        { $match: { ...payload } },
+        { $group: { 
+            _id: "$articul",
+            name: { $first: "$name" },
+            dateIn: { $first: "$dateIn"},
+            priceOut: { $first: "$priceOut" },
+            discount: { $first: "$discount" },
+            products: { $push: "$$ROOT" } 
+          } 
+        },
+        { $sort: { ...sort } }
+      ])
 
       const productWithImage = products.map(product => {
         const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0] === product._id)
@@ -89,8 +104,8 @@ class ProductController {
       })
       return res.status(200).json({ 
         products: productWithImage,
-        totalCount: totalProducts,
-        totalPages: Math.ceil(totalProducts / limit)
+        totalCount: totalProducts.length,
+        totalPages: Math.ceil(totalProducts.length / limit)
       })
     } catch (e) {
       console.log(e);
@@ -136,6 +151,47 @@ class ProductController {
         .skip(offSet)
         .limit(limit)
 
+
+        // "$priceOut" - ("$priceOut" / 100) * "$discount"
+      const totalMoney = await ProductModel.aggregate([
+        {
+          $project: {
+            visibility: 1,
+            priceIn: 1,
+            priceOut: 1,
+            discount: { 
+              $cond: [
+                "$discount",
+                {
+                  $subtract: [
+                    "$priceOut", 
+                    { 
+                      $multiply: [
+                        { 
+                          $divide: [ 
+                            "$priceOut",
+                            100 
+                          ] 
+                        }, 
+                        "$discount"
+                      ] 
+                    }
+                  ],
+                },
+                "$priceOut" 
+              ]
+            }
+          }
+        },
+        {
+          $group: {
+            _id: "$visibility",
+            totalPriceIn: { $sum: "$priceIn"},
+            totalPriceOut: { $sum: "$discount" }
+          }
+        }
+      ])
+
       const totalProducts = await ProductModel.countDocuments({...payload})
       
       const productWithImage = products.map((product) => {
@@ -161,7 +217,8 @@ class ProductController {
       return res.status(200).json({ 
         products: productWithImage,
         totalCount: totalProducts,
-        totalPages: Math.ceil(totalProducts / limit)
+        totalPages: Math.ceil(totalProducts / limit),
+        totalMoney,
       })
     } catch (e) {
       console.log(e);

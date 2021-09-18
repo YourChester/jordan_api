@@ -21,9 +21,9 @@ class StatisticController {
       const statistic = []
       do {
         const firstDate = nextMonday || startDate
-        const seconsDate = new Date(new Date(firstDate).setDate(firstDate.getDate() + 6))
-        const sold = solds.filter(el => new Date(firstDate).getTime() < new Date(el.date).getTime() 
-          && new Date(el.date).getTime() < new Date(seconsDate).getTime())
+        const seconsDate = new Date(new Date(new Date(firstDate).setDate(firstDate.getDate() + 6)).getTime() + (20 * 3600 * 1000))
+        const sold = solds.filter(el => new Date(firstDate).getTime() <= new Date(el.date).getTime() 
+          && new Date(el.date).getTime() <= new Date(seconsDate).getTime())
         if (!sold.length) {
           haveSold = false
         } else {
@@ -33,7 +33,7 @@ class StatisticController {
             sold,
             visible: false
           })
-          nextMonday = new Date(new Date(seconsDate).setDate(seconsDate.getDate() + 1))
+          nextMonday = new Date(new Date(firstDate).setDate(firstDate.getDate() + 7))
         }
       } while(haveSold)
 
