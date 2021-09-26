@@ -8,9 +8,9 @@ const stringData = fileData.toString().split(',\r\n').map(el => {
 
 const formatedData = stringData[0].split('\n').map(el => {
   let arrayData = ''
-  if (/'\d{1,2},\s\d{1,2}'/g.exec(el)) {
-    const buff = /'\d{1,2},\s\d{1,2}'/g.exec(el)
-    const newStr = el.replace(/'\d{1,2},\s\d{1,2}'/g, buff[0].replace(',', ';'))
+  if (/'\d{1,2}(,\s\d{1,2}){1,2}'/g.exec(el)) {
+    const buff = /'\d{1,2}(,\s\d{1,2}){1,2}'/g.exec(el)
+    const newStr = el.replace(/'\d{1,2}(,\s\d{1,2}){1,2}'/g, buff[0].replace(',', ';'))
     arrayData = newStr.split(',')
   } else {
     arrayData = el.split(',')

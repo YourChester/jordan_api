@@ -236,13 +236,16 @@ class ProductController {
       const product = await ProductModel.findOne({...payload})
       
       let productWithImage = {}
-      
-      if (product.articul) {
-        const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.articul))
-        productWithImage = {
-          ...product._doc,
-          images: images
+      if (product) {
+        if (product.articul) {
+          const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.articul))
+          productWithImage = {
+            ...product._doc,
+            images: images
+          }
         }
+      } else {
+        return res.status(200).json({ product: null })
       }
 
       return res.status(200).json({ product: productWithImage })
@@ -316,8 +319,12 @@ class ProductController {
       const product = await ProductModel.findById(id)
 
       const curentImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.articul))
+      let pairImages = []
+      if (product.pair) {
+        pairImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.pair))
+      }
       if (product !== null) {
-        return res.status(200).json({ product: { ...product._doc, images: curentImages } })
+        return res.status(200).json({ product: { ...product._doc, images: curentImages, pairImages } })
       } else {
         return res.status(500).json({ message: 'Товар не найден'})
       }
@@ -332,10 +339,28 @@ class ProductController {
       const id = req.params.id
       const updateProduct = req.body
 
+      const product = await ProductModel.findById(id)
+
       const updatedProduct = await ProductModel.updateOne(
         { _id: id }, 
         { $set: updateProduct }
       )
+
+      const updatedBody = {}
+
+      if (product.pair !== updateProduct.pair) {
+        updatedBody.pair = updateProduct.pair
+      }
+      if (product.discount !== updateProduct.discount) {
+        updatedBody.discount = updateProduct.discount
+      }
+      const keys = Object.keys(updatedBody)
+      if (keys.length) {
+        const productController = new ProductController()
+        productController.adminUpdateByArticul(updatedBody, updateProduct.articul)
+      }
+
+
       if (updatedProduct.nModified) {
         const product = await ProductModel.findById(id)
         return res.status(200).json({ product })
@@ -343,6 +368,28 @@ class ProductController {
         return res.status(500).json({ message: 'Товар не был изменен'})
       }
     } catch (e) {
+      console.log(e);
+      res.status(500).json({ message: e.message })
+    }
+  }
+
+  async adminUpdateByArticul(updatedBody, articul) {
+    try {
+      const payload = {}
+      payload.articul = new RegExp(articul, 'i')
+      payload.visibility = true
+      const products = await ProductModel.find({...payload})
+      const idsProduct = []
+
+      products.forEach(el => {
+        idsProduct.push(el._id)
+      })
+
+      await ProductModel.updateMany(
+        { _id: idsProduct }, 
+        { $set: updatedBody }
+      )
+    } catch(e) {
       console.log(e);
       res.status(500).json({ message: e.message })
     }
