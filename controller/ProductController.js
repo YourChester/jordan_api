@@ -75,7 +75,7 @@ class ProductController {
             dateIn: { $first: "$dateIn"},
             priceOut: { $first: "$priceOut" },
             discount: { $first: "$discount" },
-            products: { $push: "$$ROOT" } 
+            products: { $push: "$$ROOT" }
           } 
         },
         { $sort: { ...sort } }
@@ -284,17 +284,19 @@ class ProductController {
         .populate('category')
         .populate('seller')
 
+      let pairProduct = null
       if (product.pair) {
         const payload = {
           visibility: true,
           articul: new RegExp(product.pair, 'i')
         }
-        const pair = await ProductModel.find({...payload})
+        const pairs = await ProductModel.find({...payload})
           .populate('gender')
           .populate('category')
           .populate('seller')
-        const curentPairImages = product.pair ? fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.pair.articul)) : []
-        product.pair = pair ? {...pair._doc, images: curentPairImages} : ''
+
+        const curentPairImages = pairs.length ? fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.pair)) : []
+        pairProduct = pairs.length ? { pairs, images: curentPairImages} : ''
       }
 
       const productSizes = await ProductModel.aggregate([
@@ -303,7 +305,7 @@ class ProductController {
         ])
       const curentImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.includes(product.articul))
       if (product !== null) {
-        return res.status(200).json({ product: { ...product._doc, images: curentImages, size: productSizes.map((el) => el._id) } })
+        return res.status(200).json({ product: { ...product._doc, images: curentImages, size: productSizes.map((el) => el._id), pairProduct } })
       } else {
         return res.status(500).json({ message: 'Товар не найден'})
       }
@@ -348,18 +350,25 @@ class ProductController {
 
       const updatedBody = {}
 
-      if (product.pair !== updateProduct.pair) {
-        updatedBody.pair = updateProduct.pair
+      if (product.visibility && updateProduct.articul) {
+        if (product.pair !== updateProduct.pair) {
+          updatedBody.pair = updateProduct.pair
+        }
+        if (product.discount !== updateProduct.discount) {
+          updatedBody.discount = updateProduct.discount
+        }
+        if (product.name !== updateProduct.name) {
+          updatedBody.name = updateProduct.name
+        }
+        if (product.brand !== updateProduct.brand) {
+          updatedBody.brand = updateProduct.brand
+        }
+        const keys = Object.keys(updatedBody)
+        if (keys.length) {
+          const productController = new ProductController()
+          productController.adminUpdateByArticul(updatedBody, updateProduct.articul)
+        }
       }
-      if (product.discount !== updateProduct.discount) {
-        updatedBody.discount = updateProduct.discount
-      }
-      const keys = Object.keys(updatedBody)
-      if (keys.length) {
-        const productController = new ProductController()
-        productController.adminUpdateByArticul(updatedBody, updateProduct.articul)
-      }
-
 
       if (updatedProduct.nModified) {
         const product = await ProductModel.findById(id)

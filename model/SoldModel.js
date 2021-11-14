@@ -25,7 +25,11 @@ const SoldSchema = mongoose.Schema({
   products: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'ProductModel'
-  }]
+  }],
+  comment: {
+    type: String,
+    default: ''
+  }
 })
 
 module.exports = mongoose.model('SoldModel', SoldSchema)

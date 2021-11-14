@@ -21,6 +21,9 @@ class DiscountCardController {
       if (req.query.phone) {
         payload.phone = new RegExp(req.query.phone, 'i')
       }
+      if (req.query.code) {
+        payload.code = req.query.code
+      }
 
       const discountCards = await DiscountCardModel.find({...payload})
         .sort({ 'createAt': -1 })
