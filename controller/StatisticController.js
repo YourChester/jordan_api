@@ -58,7 +58,7 @@ class StatisticController {
       const statistic = []
       do {
         const firstDate = nextMonday || startDate
-        const seconsDate = new Date(new Date(new Date(firstDate).setMonth(firstDate.getMonth() + 1)).setDate(-2))
+        const seconsDate = new Date(new Date(new Date(firstDate).setMonth(firstDate.getMonth() + 1)))
         const sold = solds.filter(el => new Date(firstDate).getTime() < new Date(el.date).getTime() 
           && new Date(el.date).getTime() < new Date(seconsDate).getTime())
         const cost = costs.filter(el => new Date(firstDate).getTime() < new Date(el.date).getTime() 

@@ -115,6 +115,7 @@ class ProductController {
 
   async adminIndex(req, res) {
     try {
+      const sort = {}
       const page = req.query.page
       const limit = Number(req.query.limit) || 40
       const offSet = limit * page - limit
@@ -144,10 +145,56 @@ class ProductController {
         payload.category = { $in: [req.query.category] }
       }
 
+      switch (req.query.sort) {
+        case 'name-reverse':
+          sort.name = -1
+          break;
+        case 'name':
+          sort.name = 1
+          break;
+        case 'priceIn-reverse':
+          sort.priceIn = -1
+          break;
+        case 'priceIn':
+          sort.priceIn = 1
+          break;
+        case 'priseSold-reverse':
+          sort.priseSold = -1
+          break;
+        case 'priseSold':
+          sort.priseSold = 1
+          break;
+        case 'dateOut-reverse':
+          sort.dateOut = -1
+          break;
+        case 'dateOut':
+          sort.dateOut = 1
+          break;
+        case 'createAt-reverse':
+          sort.createAt = -1
+          break;
+        case 'createAt':
+          sort.createAt = 1
+          break;
+        case 'priceOut-reverse':
+          sort.priceOut = -1
+          break;
+        case 'priceOut':
+          sort.priceOut = 1
+          break;
+        case 'dateIn':
+          sort.dateIn = 1
+          break;
+        case 'dateIn-reverse':
+        default:
+          sort.dateIn = -1
+          break;
+      }
+
       const products = await ProductModel.find({...payload})
         .populate('category')
         .populate('seller')
-        .sort({'dateIn': -1})
+        .sort(sort)
         .skip(offSet)
         .limit(limit)
 

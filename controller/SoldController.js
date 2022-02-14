@@ -54,61 +54,134 @@ class SoldController {
                 as: "products_info"
               }
           },
-          
           { $match: { ...payload } },
-          { $sort: { date: -1 } }
-        ]).skip(offSet).limit(limit)
-        
-      const groupSolds = []
-      solds.forEach(sold => {
-        const day = new Date(new Date(sold.date).toLocaleString('en-US', { timeZone: 'Europe/Moscow' })).getDate()
-        const month = new Date(new Date(sold.date).toLocaleString('en-US', { timeZone: 'Europe/Moscow' })).getMonth() + 1
-        const year = new Date(new Date(sold.date).toLocaleString('en-US', { timeZone: 'Europe/Moscow' })).getFullYear()
-        const id = `${day > 10 ? day : '0' + day}.${month > 10 ? month : '0' + month}.${year}`
-        const productWithImage = sold.products_info.map((product) => {
-          if (product.articul) {
-            const images = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.articul))
-            let pairImages = []
-            if (product.pair) {
-              pairImages = fs.readdirSync(path.resolve(__dirname, '..', 'static')).filter(el => el.split('_')[0].includes(product.pair))
+          {
+            $project:
+              {
+                doDay: { $dayOfMonth: "$date" },
+                doMonth: { $month: "$date" },
+                doYear: { $year: "$date" },
+                date: 1,
+                seller: 1,
+                seller_info: 1,
+                card: 1,
+                card_info: 1,
+                products: 1,
+                products_info: 1,
+                discount: 1,
+                totalPrice: 1,
+                totalIncome: 1,
+                comment: 1
+              }
+          },
+          {
+            $project:
+              {
+                date: 1,
+                seller: 1,
+                seller_info: 1,
+                card: 1,
+                card_info: 1,
+                products: 1,
+                products_info: 1,
+                discount: 1,
+                totalPrice: 1,
+                totalIncome: 1,
+                comment: 1,
+                groupDate: {
+                  $concat: [
+                    { $substr: ["$doDay", 0, -1] },
+                    '-',
+                    { $substr: ["$doMonth", 0, -1] },
+                    '-',
+                    { $substr: ["$doYear", 0, -1] },
+                  ] 
+                }
+              }
+          },
+          {
+            $group:
+            { 
+              _id: "$groupDate",
+              // totalPrice: { $sum: { $toInt: "$totalPrice" } },
+              date: { $first: '$date' },
+              solds: { $push: "$$ROOT" } 
+            } 
+          },
+          { $sort: { date: -1 } },
+      ]).skip(offSet).limit(limit)
+
+      const productImages = fs.readdirSync(path.resolve(__dirname, '..', 'static'))
+      solds.forEach(groupSolds => {
+        groupSolds.solds.forEach(sold => {
+          sold.products_info = sold.products_info.map(product => {
+            if (product.articul) {
+              const productImg = {
+                images: '',
+                pairImages: ''
+              }
+              const image = productImages.filter(el => el.includes(product.articul))
+              if (image.length) {
+                productImg.images = image[0]
+              }
+              if (product.pair) {
+                const pairImages = productImages.filter(el => el.includes(product.pair))
+                if (pairImages.length) {
+                  productImg.pairImages = pairImages[0]
+                }
+              }
+              return {
+                ...product,
+                ...productImg
+              }
+            } else {
+              return product
             }
-            return {
-              ...product,
-              images: images,
-              pairImages,
-            }
-          } else {
-            return {
-              ...product._doc,
-              images: []
-            }
-          }
+          })
         })
-        const index = groupSolds.findIndex(el => el._id === id)
-        if(index > -1) {
-          groupSolds[index].solds.push({
-            ...sold,
-            products_info: productWithImage
-          })
-          groupSolds[index].totalPrice += Number(sold.totalPrice)
-        } else {
-          groupSolds.push({
-            _id: id,
-            totalPrice: Number(sold.totalPrice),
-            solds: [{
-              ...sold,
-              products_info: productWithImage
-            }]
-          })
-        }
+        const totalPrice = groupSolds.solds.reduce(
+          (preVal, currVal) => preVal + Number(currVal.totalPrice),
+          0
+        );
+        groupSolds.totalPrice = totalPrice
       })
 
-      const totalElement = await SoldModel.countDocuments({...payload})
+      const totalElement = await SoldModel.aggregate([
+        { $match: { ...payload } },
+        {
+          $project:
+            {
+              doDay: { $dayOfMonth: "$date" },
+              doMonth: { $month: "$date" },
+              doYear: { $year: "$date" },
+            }
+        },
+        {
+          $project:
+            {
+              groupDate: {
+                $concat: [
+                  { $substr: ["$doDay", 0, -1] },
+                  '-',
+                  { $substr: ["$doMonth", 0, -1] },
+                  '-',
+                  { $substr: ["$doYear", 0, -1] },
+                ] 
+              }
+            }
+        },
+        {
+          $group:
+          { 
+            _id: "$groupDate",
+          } 
+        },
+      ])
     
       return res.status(200).json({ 
-        solds: groupSolds,
-        totalCount: totalElement,
-        totalPages: Math.ceil(totalElement / limit)
+        solds: solds,
+        totalCount: totalElement.length,
+        totalPages: Math.ceil(totalElement.length / limit)
       })
     } catch (e) {
       console.log(e);

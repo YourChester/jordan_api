@@ -9,7 +9,6 @@ const SellerModel = require('../model/SellerModel')
 
 class CodebooksController {
   async buildMenu() {
-    // const totalProducts = await ProductModel.countDocuments({...payload})
     try {
       const genders = await GenderModel.find()
       const categories = await CategoryModel.find().populate('parent')
@@ -39,7 +38,17 @@ class CodebooksController {
           menuTree.push({
             _id: parentCategories[x]._id,
             name: parentCategories[x].name,
-            childs: childs.filter(el => el.count)
+            childs: childs.filter(el => el.count).sort((a, b) => {
+              if (a.name > b.name) {
+                return 1
+              }
+              if (a.name < b.name) {
+                return -1
+              }
+              if (a.name == b.name) {
+                return 0
+              }
+            })
           })
         }
         menu.push({
