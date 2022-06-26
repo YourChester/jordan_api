@@ -410,6 +410,9 @@ class ProductController {
         if (product.brand !== updateProduct.brand) {
           updatedBody.brand = updateProduct.brand
         }
+        if (product.priceOut !== updateProduct.priceOut) {
+          updatedBody.priceOut = updateProduct.priceOut
+        }
         const keys = Object.keys(updatedBody)
         if (keys.length) {
           const productController = new ProductController()

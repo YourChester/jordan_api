@@ -9,8 +9,8 @@ class SoldController {
   async adminIndex(req, res) {
     try {
       const page = req.query.page
-      const limit = Number(req.query.limit) || 40
-      const offSet = limit * page - limit
+      let limit = Number(req.query.limit) || 40
+      let offSet = limit * page - limit
 
       const payload = {}
       
@@ -24,6 +24,8 @@ class SoldController {
           { 'products_info.articul':  new RegExp(req.query.search, 'i')},
           { 'products_info.name':  new RegExp(req.query.search, 'i')}
         ]
+        limit = 50
+        offSet = limit * page - limit
       }
 
       const solds = await SoldModel.aggregate([
@@ -55,6 +57,7 @@ class SoldController {
               }
           },
           { $match: { ...payload } },
+          { $sort: { date: -1 } },
           {
             $project:
               {
@@ -147,6 +150,33 @@ class SoldController {
       })
 
       const totalElement = await SoldModel.aggregate([
+        {
+          $lookup:
+            {
+              from: "sellermodels",
+              localField: "seller",
+              foreignField: "_id",
+              as: "seller_info"
+            }
+        },
+        {
+          $lookup:
+            {
+              from: "discountcardmodels",
+              localField: "card",
+              foreignField: "_id",
+              as: "card_info"
+            }
+        },
+        {
+          $lookup:
+            {
+              from: "productmodels",
+              localField: "products",
+              foreignField: "_id",
+              as: "products_info"
+            }
+        },
         { $match: { ...payload } },
         {
           $project:
