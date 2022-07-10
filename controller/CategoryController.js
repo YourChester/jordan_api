@@ -47,7 +47,7 @@ class CategoryController {
       const id = req.params.id
       const { name, parent } = req.body
       const updatedCategory = await CategoryModel.updateOne({ _id: id }, { $set: { name, parent } })
-      if (updatedCategory.nModified) {
+      if (updatedCategory.modifiedCount) {
         const category = await CategoryModel.findById(id)
         return res.status(200).json({category})
       } else {

@@ -72,7 +72,7 @@ class GenderController {
       const id = req.params.id
       const { name } = req.body
       const updatedGender = await GenderModel.updateOne({ _id: id }, { $set: { name } })
-      if (updatedGender.nModified) {
+      if (updatedGender.modifiedCount) {
         const gender = await GenderModel.findById(id)
         return res.status(200).json(gender)
       } else {

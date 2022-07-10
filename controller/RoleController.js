@@ -47,7 +47,7 @@ class RoleController {
       const id = req.params.id
       const { name, key } = req.body
       const updatedRole = await RoleModel.updateOne({ _id: id }, { $set: { name, key } })
-      if (updatedRole.nModified) {
+      if (updatedRole.modifiedCount) {
         const role = await RoleModel.findById(id)
         return res.status(200).json(role)
       } else {

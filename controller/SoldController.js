@@ -292,7 +292,7 @@ class SoldController {
       const sold = req.body
 
       const updatedSold= await SoldModel.updateOne({ _id: id }, { $set: sold })
-      if (updatedSold.nModified) {
+      if (updatedSold.modifiedCount) {
         const sold = await SoldModel.findById(id)
         return res.status(200).json(sold)
       } else {

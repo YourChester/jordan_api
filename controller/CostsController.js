@@ -64,7 +64,7 @@ class CostsContrioller {
         { _id: id }, 
         { $set: updateCost }
       )
-      if (updatedCost.nModified) {
+      if (updatedCost.modifiedCount) {
         const cost = await CostsModel.findById(id)
         return res.status(200).json({ cost })
       } else {

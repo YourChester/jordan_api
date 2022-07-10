@@ -99,7 +99,7 @@ class DiscountCardController {
       const updatedDiscountCard = await DiscountCardModel.updateOne(
         { _id: id }, { $set: body }
       )
-      if (updatedDiscountCard.nModified) {
+      if (updatedDiscountCard.modifiedCount) {
         const discountCard = await DiscountCardModel.findById(id)
         return res.status(200).json(discountCard)
       } else {

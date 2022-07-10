@@ -55,12 +55,20 @@ class SellerController {
   async adminUpdate(req, res) {
     try {
       const id = req.params.id
-      const { name, login, password, role } = req.body
+      const body = req.body
 
-      const hashPassword = bcrypt.hashSync(body.password, Number(process.env.SALT_HASH))
+      const newBody = JSON.parse(JSON.stringify(body))
+      delete newBody.password
 
-      const updatedSeller = await SellerModel.updateOne({ _id: id }, { $set: { name, login, password: hashPassword, role } })
-      if (updatedSeller.nModified) {
+      if (body.password) {
+        hashPassword = bcrypt.hashSync(body.password, Number(process.env.SALT_HASH))
+        newBody.password = hashPassword
+      }
+
+
+      const updatedSeller = await SellerModel.updateOne({ _id: id }, { $set: { ...newBody } })
+
+      if (updatedSeller.modifiedCount) {
         const seller = await SellerModel.findById(id).populate('role').select('login').select('name')
         return res.status(200).json(seller)
       } else {

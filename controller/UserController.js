@@ -103,7 +103,7 @@ class UserController {
         { _id: id },
         { $set: { firstName, lastName, middleName, gender, email, password, address, phone, birthday, discountCard, visibility } }
       )
-      if (updatedUser.nModified) {
+      if (updatedUser.modifiedCount) {
         const user = await UserModel.findById(id).populate('discountCard').populate('gender').select('password')
         return res.status(200).json(user)
       } else {

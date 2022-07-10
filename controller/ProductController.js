@@ -420,7 +420,7 @@ class ProductController {
         }
       }
 
-      if (updatedProduct.nModified) {
+      if (updatedProduct.modifiedCount) {
         const product = await ProductModel.findById(id)
         return res.status(200).json({ product })
       } else {
@@ -469,8 +469,8 @@ class ProductController {
         { _id: ids }, 
         { $set: body }
       )
-      if (updatedProduct.nModified) {
-        return res.status(200).json({ updated: updatedProduct.nModified })
+      if (updatedProduct.modifiedCount) {
+        return res.status(200).json({ updated: updatedProduct.modifiedCount })
       } else {
         return res.status(500).json({ message: 'Не удалось обновить товар'})
       }
